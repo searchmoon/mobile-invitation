@@ -1,10 +1,9 @@
-import { Button } from "@/components/ui/button";
+import Preview from './pages/Preview';
 
 function App() {
   return (
     <div className="flex flex-col items-center justify-center min-h-svh">
-      <Button>Click me</Button>
-      <div className="bg-mint text-black p-4 rounded-xl">ㅁㅁ</div>
+      <Preview />
     </div>
   );
 }
