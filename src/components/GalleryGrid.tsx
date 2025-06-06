@@ -7,7 +7,7 @@ export default function GalleryGrid() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   // 갤러리 이미지들은 나중에 supabase 에서 가지고오는 이미지로 대체하기.
-  const imageModules = import.meta.glob('/src/assets/images/gallery/*.jpg', {
+  const imageModules = import.meta.glob('/src/assets/images/gallery/wedding*.jpg', {
     eager: true, //즉시 가져오기(lazy 가 아니라 동기 라는 뜻)
     import: 'default', //glob 옵션에서 불러올 모듈에서 default 속성만 추출하겠다는 설정
   });
