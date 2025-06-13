@@ -1,11 +1,17 @@
 import { ChevronDown, ChevronLeft, ChevronRight, ChevronUp, X } from "lucide-react";
-import { useRef, useState } from "react";
-import placeholder from "@/assets/placeholder.svg";
+import { useState, useEffect } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
 export default function GalleryGrid() {
   const [showAll, setShowAll] = useState(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const pointerStartX = useRef<number | null>(null);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
 
   // 갤러리 이미지들은 나중에 supabase 에서 가지고오는 이미지로 대체하기.
   const imageModules = import.meta.glob("/src/assets/images/gallery/wedding*.jpg", {
@@ -16,45 +22,63 @@ export default function GalleryGrid() {
 
   const visibleImages = showAll ? galleryImages : galleryImages.slice(0, 9);
 
-  const nextImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage((selectedImage + 1) % galleryImages.length);
+  // Carousel API 이벤트 리스너
+  useEffect(() => {
+    if (!api) {
+      return;
     }
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  // 선택된 이미지가 변경될 때 carousel을 해당 인덱스로 이동
+  useEffect(() => {
+    if (api && selectedImage !== null) {
+      api.scrollTo(selectedImage);
+    }
+  }, [api, selectedImage]);
+
+  const handleImageClick = (index: number) => {
+    setSelectedImage(index);
+    setCurrent(index);
   };
 
-  const prevImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage((selectedImage - 1 + galleryImages.length) % galleryImages.length);
-    }
+  const handleCloseModal = () => {
+    setSelectedImage(null);
   };
 
-  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    pointerStartX.current = e.clientX; //useState 의 set 함수를 useRef 로 바꿔줬다. 즉시 반영됨
+  const handlePrevious = () => {
+    api?.scrollPrev();
   };
 
-  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (pointerStartX.current !== null) {
-      const distance = pointerStartX.current - e.clientX;
-      if (distance > 30) {
-        nextImage();
-      } else if (distance < -30) {
-        prevImage();
-      }
-    }
-    pointerStartX.current = null;
+  const handleNext = () => {
+    api?.scrollNext();
   };
 
   return (
-    <div className="mt-4 bg-slate-50">
+    <div className={`bg-theme`}>
+      <div className="py-20">
+        <div className="text-center mb-6">
+          <p className="text-4xl font-serif text-gray opacity-90 tracking-wider px-10">GALLERY</p>
+        </div>
+
+        <div className="text-center space-y-2 px-10 mb-6">
+          <p className="text-gray opacity-80">사진을 클릭하시면 전체 화면 보기가 가능합니다</p>
+        </div>
+      </div>
       <div className="w-full grid gap-[2px] grid-cols-3">
         {visibleImages.map((image, index) => (
-          <div key={index} className="flex justify-center items-center bg-gray-300">
+          <div key={index} className="flex justify-center items-center">
             <div
               className="relative w-full aspect-square overflow-hidden cursor-pointer hover:opacity-80 transition-opacity flex items-center"
-              onClick={() => setSelectedImage(index)}
+              onClick={() => handleImageClick(index)}
             >
               <img
-                src={image || placeholder}
+                src={image || "/placeholder.svg?height=400&width=400"}
                 alt={`Gallery ${index + 1}`}
                 className="object-cover w-full h-full"
               />
@@ -62,51 +86,69 @@ export default function GalleryGrid() {
           </div>
         ))}
       </div>
-
       <div
-        className="flex justify-center py-9 cursor-pointer"
+        className="flex flex-col items-center justify-center py-6 cursor-pointer"
         onClick={() => setShowAll((prev) => !prev)}
       >
-        {!showAll ? <ChevronDown strokeWidth={1} /> : <ChevronUp strokeWidth={1} />}
+        {!showAll ? (
+          <>
+            <span className="text-lightgray text-[14px]">더보기</span>
+            <ChevronDown strokeWidth={1} className="w-[18px] h-[18px]" />
+          </>
+        ) : (
+          <>
+            <span className="text-lightgray text-[14px]">닫기</span>
+            <ChevronUp strokeWidth={1} className="w-[18px] h-[18px]" />
+          </>
+        )}
       </div>
 
-      {/* 이미지 클릭 시 모달 */}
       {selectedImage !== null && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black touch-none" //기본 터치 스크롤 방지
-          onPointerDown={handlePointerDown}
-          onPointerUp={handlePointerUp}
-        >
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
           <div className="relative w-full h-full flex items-center justify-center">
             <button
-              onClick={() => setSelectedImage(null)}
+              onClick={handleCloseModal}
               className="absolute top-4 right-4 z-10 text-white hover:text-gray-300"
             >
               <X className="w-7 h-7" strokeWidth={1.2} />
             </button>
 
-            <button
-              onClick={prevImage}
-              className="absolute left-4 z-10 text-white hover:text-gray-300"
+            <Carousel
+              setApi={setApi}
+              className="w-full h-full flex items-center"
+              opts={{
+                loop: true,
+              }}
             >
-              <ChevronLeft className="w-8 h-8" strokeWidth={1.2} />
-            </button>
+              <CarouselContent className="flex items-center">
+                {galleryImages.map((image, index) => (
+                  <CarouselItem key={index} className="h-full flex items-center justify-center">
+                    <img
+                      src={image || "/placeholder.svg"}
+                      alt={`Gallery ${index + 1}`}
+                      className="object-contain max-h-screen mx-auto w-auto"
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
 
-            <button
-              onClick={nextImage}
-              className="absolute right-4 z-10 text-white hover:text-gray-300"
-            >
-              <ChevronRight className="w-8 h-8" strokeWidth={1.2} />
-            </button>
+              <button
+                onClick={handlePrevious}
+                className="absolute left-2 xs400:left-3 top-1/2 -translate-y-1/2 z-10 text-white hover:text-gray-300"
+              >
+                <ChevronLeft className="w-8 h-8" strokeWidth={1.2} />
+              </button>
 
-            <img
-              src={galleryImages[selectedImage] || "/placeholder.svg"}
-              alt={`Gallery ${selectedImage + 1}`}
-              className="max-w-full max-h-full object-contain"
-            />
+              <button
+                onClick={handleNext}
+                className="absolute right-2 xs400:right-3 top-1/2 -translate-y-1/2 z-10 text-white hover:text-gray-300"
+              >
+                <ChevronRight className="w-8 h-8" strokeWidth={1.2} />
+              </button>
+            </Carousel>
 
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white">
-              {selectedImage + 1} / {galleryImages.length}
+              {current + 1} / {galleryImages.length}
             </div>
           </div>
         </div>
