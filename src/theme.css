@@ -54,6 +54,15 @@
   --color-border: #5eead4; /* teal-300 */
 }
 
+/* 테마: mood */
+.theme-mood {
+  --color-bg: #efedec; /* teal-200 */
+  --color-light-bg: #f5f3f2; /* teal-50 */
+  --color-accent: #e7c6b5; /* teal-600 */
+  --color-border: #9a8276; /* teal-300 */
+
+}
+
 /* 폰트 컬러 */
 .text-black {
   color: var(--color-black);
