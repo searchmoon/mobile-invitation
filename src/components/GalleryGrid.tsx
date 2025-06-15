@@ -6,6 +6,7 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
+import MotionDiv from "./MotionDiv";
 
 export default function GalleryGrid() {
   const [showAll, setShowAll] = useState(false);
@@ -60,49 +61,49 @@ export default function GalleryGrid() {
   };
 
   return (
+    // <MotionDiv>
     <div className={`bg-theme`}>
-      <div className="py-20">
-        <div className="text-center mb-6">
-          <p className="text-4xl font-serif text-gray opacity-90 tracking-wider px-10">GALLERY</p>
-        </div>
-
-        <div className="text-center space-y-2 px-10 mb-6">
-          <p className="text-gray opacity-80">사진을 클릭하시면 전체 화면 보기가 가능합니다</p>
-        </div>
+      <div className="flex justify-center pt-18 pb-8">
+        <MotionDiv>
+          <p className="text-3xl font-serif text-gray opacity-90 tracking-wider">GALLERY</p>
+        </MotionDiv>
       </div>
-      <div className="w-full grid gap-[2px] grid-cols-3">
-        {visibleImages.map((image, index) => (
-          <div key={index} className="flex justify-center items-center">
-            <div
-              className="relative w-full aspect-square overflow-hidden cursor-pointer hover:opacity-80 transition-opacity flex items-center"
-              onClick={() => handleImageClick(index)}
-            >
-              <img
-                src={image || "/placeholder.svg?height=400&width=400"}
-                alt={`Gallery ${index + 1}`}
-                className="object-cover w-full h-full"
-              />
+      <MotionDiv>
+        <div className="w-full grid gap-[2px] grid-cols-3">
+          {visibleImages.map((image, index) => (
+            <div key={index} className="flex justify-center items-center">
+              <div
+                className="relative w-full aspect-square overflow-hidden cursor-pointer hover:opacity-80 transition-opacity flex items-center"
+                onClick={() => handleImageClick(index)}
+              >
+                <img
+                  src={image || "/placeholder.svg?height=400&width=400"}
+                  alt={`Gallery ${index + 1}`}
+                  className="object-cover w-full h-full"
+                />
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      <div
-        className="flex flex-col items-center justify-center py-6 cursor-pointer"
-        onClick={() => setShowAll((prev) => !prev)}
-      >
-        {!showAll ? (
-          <>
-            <span className="text-lightgray text-[14px]">더보기</span>
-            <ChevronDown strokeWidth={1} className="w-[18px] h-[18px]" />
-          </>
-        ) : (
-          <>
-            <span className="text-lightgray text-[14px]">닫기</span>
-            <ChevronUp strokeWidth={1} className="w-[18px] h-[18px]" />
-          </>
-        )}
-      </div>
-
+          ))}
+        </div>
+      </MotionDiv>
+      <MotionDiv>
+        <div
+          className="flex flex-col items-center justify-center py-6 cursor-pointer"
+          onClick={() => setShowAll((prev) => !prev)}
+        >
+          {!showAll ? (
+            <>
+              <span className="text-lightgray text-[14px]">더보기</span>
+              <ChevronDown strokeWidth={1} className="w-[18px] h-[18px]" />
+            </>
+          ) : (
+            <>
+              <span className="text-lightgray text-[14px]">닫기</span>
+              <ChevronUp strokeWidth={1} className="w-[18px] h-[18px]" />
+            </>
+          )}
+        </div>
+      </MotionDiv>
       {selectedImage !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
           <div className="relative w-full h-full flex items-center justify-center">
@@ -117,6 +118,7 @@ export default function GalleryGrid() {
               setApi={setApi}
               className="w-full h-full flex items-center"
               opts={{
+                startIndex: selectedImage, // 처음 시작할 인덱스를 지정. 이걸 추가해야 갤러리에서 처음 사진을 클릭했을때, 가로 스크롤이 적용이 안됨.
                 loop: true,
               }}
             >
@@ -154,5 +156,6 @@ export default function GalleryGrid() {
         </div>
       )}
     </div>
+    // </MotionDiv>
   );
 }
