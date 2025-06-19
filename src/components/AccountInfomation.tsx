@@ -1,6 +1,6 @@
 import { Flower2 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
-import AccountSeparate from "./accountInfo/PersonalAccount";
+import PersonalAccount from "./accountInfo/PersonalAccount";
 import MotionDiv from "./MotionDiv";
 
 export default function AccountInfomation() {
@@ -64,7 +64,7 @@ export default function AccountInfomation() {
               </AccordionTrigger>
               <AccordionContent className="p-5">
                 {groomAccount.map((item, index) => (
-                  <AccountSeparate
+                  <PersonalAccount
                     key={item.accountNumber}
                     items={item}
                     isLast={index === groomAccount.length - 1}
@@ -83,7 +83,7 @@ export default function AccountInfomation() {
               </AccordionTrigger>
               <AccordionContent className="p-5">
                 {brideAccount.map((item, index) => (
-                  <AccountSeparate
+                  <PersonalAccount
                     key={item.accountNumber}
                     items={item}
                     isLast={index === brideAccount.length - 1}
