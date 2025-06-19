@@ -2,6 +2,7 @@ import { useState } from "react";
 import GalleryGrid from "@/components/GalleryGrid";
 import MainBanner from "@/components/MainBanner";
 import WeddingCalendar from "@/components/WeddingCalendar";
+import AccountInfomation from "@/components/AccountInfomation";
 
 export default function Preview() {
   const [themeColor, setThemeColor] = useState<string>("slate");
@@ -35,6 +36,7 @@ export default function Preview() {
       <MainBanner />
       <GalleryGrid />
       <WeddingCalendar />
+      <AccountInfomation />
     </div>
   );
 }
