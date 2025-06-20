@@ -3,6 +3,7 @@ import GalleryGrid from "@/components/GalleryGrid";
 import MainBanner from "@/components/MainBanner";
 import WeddingCalendar from "@/components/WeddingCalendar";
 import AccountInfomation from "@/components/AccountInfomation";
+import Location from "@/components/Location";
 
 export default function Preview() {
   const [themeColor, setThemeColor] = useState<string>("slate");
@@ -36,6 +37,7 @@ export default function Preview() {
       <MainBanner />
       <GalleryGrid />
       <WeddingCalendar />
+      <Location />
       <AccountInfomation />
     </div>
   );
