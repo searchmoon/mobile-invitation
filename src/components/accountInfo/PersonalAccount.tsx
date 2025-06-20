@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Separator } from "../ui/separator";
 import { Copy } from "lucide-react";
+import { toast } from "sonner";
 
 interface PersonalAccountProp {
   items: {
@@ -21,9 +22,12 @@ export default function PersonalAccount({ items, isLast = false }: PersonalAccou
 
   const handlePointerUp = (e: React.PointerEvent<HTMLSpanElement>) => {
     if (isPointerDown.current) {
-      // 실제 동작 (예: 복사)
       const text = e.currentTarget.innerText;
-      navigator.clipboard.writeText(text).then(() => alert("복사 되었습니다."));
+      navigator.clipboard.writeText(text).then(() =>
+        toast("복사가 완료 되었습니다.", {
+          description: `copy text: ${text}`,
+        }),
+      );
     }
     isPointerDown.current = false;
   };

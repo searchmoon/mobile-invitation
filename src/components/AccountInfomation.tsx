@@ -8,7 +8,7 @@ export default function AccountInfomation() {
     {
       name: "덩단훈",
       bank: "국민은행",
-      accountNumber: "010-2222-1111",
+      accountNumber: "010-1111-1111",
     },
     {
       name: "덩단훈 아버지",
@@ -16,26 +16,26 @@ export default function AccountInfomation() {
       accountNumber: "010-2222-1111",
     },
     {
-      name: "덩단훈",
+      name: "덩단훈 어머니",
       bank: "국민은행",
-      accountNumber: "010-2222-1111",
+      accountNumber: "010-3333-1111",
     },
   ];
   const brideAccount = [
     {
       name: "문덩흔",
       bank: "국민은행",
-      accountNumber: "010-2222-1111",
+      accountNumber: "010-4444-1111",
     },
     {
-      name: "문덩흔 아버지",
+      name: "문덩흔 아버지 (문연기)",
       bank: "국민은행",
-      accountNumber: "010-2222-1111",
+      accountNumber: "010-5555-1111",
     },
     {
-      name: "문덩흔",
+      name: "문덩흔 어머니 (신기루)",
       bank: "국민은행",
-      accountNumber: "010-2222-1111",
+      accountNumber: "010-6666-1111",
     },
   ];
 

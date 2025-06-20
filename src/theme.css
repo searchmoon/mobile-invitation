@@ -11,6 +11,7 @@
   --color-light-bg: #f8fafc; /* slate-50 */
   --color-accent: #64748b; /* slate-500 */
   --color-border: #e2e8f0; /* slate-300 */
+  --color-text: #928377;
 }
 
 /* 테마: Slate */
@@ -60,7 +61,6 @@
   --color-light-bg: #f5f3f2; /* teal-50 */
   --color-accent: #e7c6b5; /* teal-600 */
   --color-border: #9a8276; /* teal-300 */
-
 }
 
 /* 폰트 컬러 */
@@ -78,6 +78,10 @@
 
 .text-white {
   color: var(--color-white);
+}
+
+.text-default {
+  color: var(--color-text);
 }
 
 /* 배경 컬러 */
