@@ -1,6 +1,7 @@
-import { Bus, Car, Copy, MapPin, Minus, ParkingCircle, Phone, Plus, Train } from "lucide-react";
+import { Bus, Car, Copy, ParkingCircle, Phone, Train } from "lucide-react";
 import { Separator } from "./ui/separator";
 import MotionDiv from "./MotionDiv";
+import KakaoMap from "./location/kakaoMap";
 
 function Location() {
   return (
@@ -30,35 +31,11 @@ function Location() {
         </div>
       </MotionDiv>
       <MotionDiv>
-        {/* 지도 영역 */}
-        <div className="w-full py-4 pb-8 relative">
-          <div className="relative w-full h-56 bg-gray-200 rounded-lg overflow-hidden">
-            <div className="absolute top-4 right-4 z-10 bg-white opacity-80 rounded-md p-1">
-              <MapPin className="w-4 h-4" />
-            </div>
-            <div className="absolute bottom-4 right-4 z-10 bg-white opacity-80 rounded-sm">
-              <div className="flex flex-col py-1 px-1">
-                <button>
-                  <Plus className="w-4 h-4" />
-                </button>
-                <Separator />
-                <button>
-                  <Minus className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-            <div className="absolute top-4 left-4 z-10 bg-yellow-400 opacity-80 rounded-sm flex gap-1 px-2 py-1 items-center">
-              <MapPin className="w-3 h-3" />
-              <span className="text-white text-xs">카카오맵 열기</span>
-            </div>
-            <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-              <span className="text-gray-600">지도 영역</span>
-            </div>
-          </div>
+        <div className="w-full py-4">
+          <KakaoMap />
         </div>
       </MotionDiv>
 
-      {/* 교통 안내 */}
       <div className="flex flex-col text-sm w-full px-4 xs400:px-6 leading-6 space-y-4 text-[#111111] opacity-90">
         <MotionDiv>
           <div>

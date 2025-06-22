@@ -133,3 +133,13 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* kakao map zoom control 의 파란색 막대 숨기기 */
+div[style*="bg_zoom_control.png"] {
+  display: none !important;
+}
+
+/* zoom 레벨 관련 팝업 전부 숨기기 */
+div[style*="control.png"][style*="width: 29px"][style*="height: 15px"] {
+  display: none !important;
+}
