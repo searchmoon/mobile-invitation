@@ -4,6 +4,7 @@ import MainBanner from "@/components/MainBanner";
 import WeddingCalendar from "@/components/WeddingCalendar";
 import AccountInfomation from "@/components/AccountInfomation";
 import Location from "@/components/Location";
+import ScrollVideoComponent from "@/components/video/ScrollVideo";
 
 export default function Preview() {
   const [themeColor, setThemeColor] = useState<string>("slate");
@@ -22,7 +23,7 @@ export default function Preview() {
 
   return (
     <div className={`flex-col max-w-[460px] w-full theme-${themeColor}`}>
-      <div className="absolute right-0 top-3 flex flex-col">
+      <div className="absolute right-0 top-3 flex flex-col z-50">
         <p>pick theme</p>
         <div className="flex">
           {themeColors.map((theme) => (
@@ -37,6 +38,7 @@ export default function Preview() {
       <MainBanner />
       <GalleryGrid />
       <WeddingCalendar />
+      <ScrollVideoComponent />
       <Location />
       <AccountInfomation />
     </div>
