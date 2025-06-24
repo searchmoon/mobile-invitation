@@ -1,11 +1,11 @@
 import { Bus, Car, Copy, ParkingCircle, Phone, Train } from "lucide-react";
 import { Separator } from "./ui/separator";
 import MotionDiv from "./MotionDiv";
-import KakaoMap from "./location/kakaoMap";
+import KakaoMap from "./location/KakaoMap";
 
 function Location() {
   return (
-    <div className="bg-[#F5F3F2] py-16 bg-theme">
+    <div className="bg-[#F5F3F2] py-16 bg-theme-light">
       <MotionDiv>
         <div className="text-center mb-10">
           <p

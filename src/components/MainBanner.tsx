@@ -11,18 +11,26 @@ export default function MainBanner() {
     img.src = "/src/assets/images/main.jpg";
   }, []);
 
+  const mainTitle = [
+    { title: "with love" },
+    {
+      title: "Jengeun & Chanhun",
+      subTitle: "10 / 25",
+    },
+  ];
+
   return (
     <MotionDiv initial={{ y: 0 }}>
       <div className={"relative w-full h-screen max-h-[900px] flex flex-col bg-theme-light"}>
         <div className="w-full flex-1 flex flex-col">
           <div className="px-4 xs400:px-6">
             <h1
-              className="text-[56px] w-full break-all text-center text-lightgray transition-all duration-1000 ease-out whitespace-normal border-b-1 border-t-1 border-gray-200 mt-[8vh] mb-[4vh]"
+              className="text-[56px] w-full break-all text-center text-lightgray transition-all duration-100 ease-out whitespace-normal border-b-1 border-t-1 border-gray-200 mt-[8vh] mb-[4vh]"
               style={{
                 fontFamily: "serif",
               }}
             >
-              with love
+              {mainTitle[0].title}
             </h1>
           </div>
           {/* 이미지 섹션 */}

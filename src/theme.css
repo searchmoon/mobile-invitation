@@ -16,8 +16,8 @@
 
 /* 테마: Slate */
 .theme-slate {
-  --color-bg: #f1f5f9; /* slate-200 */
-  --color-light-bg: #f8fafc; /* slate-50 */
+  --color-bg: #f1f5f99d; /* slate-200 */
+  --color-light-bg: #f8fafc9d; /* slate-50 */
   --color-accent: #64748b; /* slate-500 */
   --color-border: #e2e8f0; /* slate-300 */
 }
@@ -25,40 +25,40 @@
 /* 테마: Amber */
 .theme-amber {
   /* --color-bg: #feefc3; amber-200 */
-  --color-bg: #fcfcfc; /* amber-200 */
-  --color-light-bg: #fffbeb; /* amber-50 */
+  --color-bg: #fcfcfc9d; /* amber-200 */
+  --color-light-bg: #fffbeb9d; /* amber-50 */
   --color-accent: #f59e0b; /* amber-500 */
   --color-border: #fde68a; /* amber-300 */
 }
 
 /* 테마: Rose */
 .theme-rose {
-  --color-bg: #ffe4e6; /* rose-200 */
-  --color-light-bg: #fff1f2; /* rose-50 */
+  --color-bg: #ffe4e69d; /* rose-200 */
+  --color-light-bg: #fff1f29d; /* rose-50 */
   --color-accent: #e11d48; /* rose-600 */
   --color-border: #fda4af; /* rose-300 */
 }
 
 /* 테마: Indigo */
 .theme-indigo {
-  --color-bg: #e0e7ff; /* indigo-200 */
-  --color-light-bg: #eef2ff; /* indigo-50 */
+  --color-bg: #e0e7ff9d; /* indigo-200 */
+  --color-light-bg: #eef2ff9d; /* indigo-50 */
   --color-accent: #4f46e5; /* indigo-600 */
   --color-border: #a5b4fc; /* indigo-300 */
 }
 
 /* 테마: Teal */
 .theme-teal {
-  --color-bg: #ccfbf1; /* teal-200 */
-  --color-light-bg: #f0fdfa; /* teal-50 */
+  --color-bg: #ccfbf19d; /* teal-200 */
+  --color-light-bg: #f0fdfa9d; /* teal-50 */
   --color-accent: #0d9488; /* teal-600 */
   --color-border: #5eead4; /* teal-300 */
 }
 
 /* 테마: mood */
 .theme-mood {
-  --color-bg: #efedec; /* teal-200 */
-  --color-light-bg: #f5f3f2; /* teal-50 */
+  --color-bg: #efedec9d; /* teal-200 */
+  --color-light-bg: #f5f3f29d; /* teal-50 */
   --color-accent: #e7c6b5; /* teal-600 */
   --color-border: #9a8276; /* teal-300 */
 }

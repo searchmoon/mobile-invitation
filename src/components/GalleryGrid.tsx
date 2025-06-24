@@ -61,8 +61,7 @@ export default function GalleryGrid() {
   };
 
   return (
-    // <MotionDiv>
-    <div className={`bg-theme`}>
+    <div className={`bg-theme-light`}>
       <div className="flex justify-center pt-18 pb-8">
         <MotionDiv>
           <p className="text-3xl font-serif text-gray opacity-90 tracking-wider">GALLERY</p>
@@ -91,17 +90,15 @@ export default function GalleryGrid() {
           className="flex flex-col items-center justify-center py-6 cursor-pointer"
           onClick={() => setShowAll((prev) => !prev)}
         >
-          {!showAll ? (
-            <>
-              <span className="text-lightgray text-[14px]">더보기</span>
-              <ChevronDown strokeWidth={1} className="w-[18px] h-[18px]" />
-            </>
-          ) : (
-            <>
-              <span className="text-lightgray text-[14px]">닫기</span>
-              <ChevronUp strokeWidth={1} className="w-[18px] h-[18px]" />
-            </>
-          )}
+          <span className="text-lightgray text-[14px]">{showAll ? "닫기" : "더보기"}</span>
+          <ChevronDown
+            strokeWidth={1}
+            className={`
+      w-[18px] h-[18px]
+      transition-transform duration-300
+      ${showAll ? "rotate-180" : ""}
+    `}
+          />
         </div>
       </MotionDiv>
       {selectedImage !== null && (
@@ -156,6 +153,5 @@ export default function GalleryGrid() {
         </div>
       )}
     </div>
-    // </MotionDiv>
   );
 }
