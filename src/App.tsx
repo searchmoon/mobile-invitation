@@ -7,7 +7,7 @@ function App() {
       <div
         className="bg-repeat-y bg-top"
         style={{
-          backgroundImage: "url('/src/assets/images/background/paper-texture.jpg')",
+          backgroundImage: "url('/images/background/paper-texture.jpg')",
           backgroundSize: "100% auto",
         }}
       >

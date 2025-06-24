@@ -26,6 +26,7 @@ export default function PersonalAccount({ items, isLast = false }: PersonalAccou
       navigator.clipboard.writeText(text).then(() =>
         toast("복사가 완료 되었습니다.", {
           description: `copy text: ${text}`,
+          duration: 1500,
         }),
       );
     }

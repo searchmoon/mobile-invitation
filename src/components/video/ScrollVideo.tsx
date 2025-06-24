@@ -62,7 +62,7 @@ const ScrollAnimatedVideo = () => {
         loop
         playsInline
       >
-        <source src="/src/assets/video/wedding-video.mp4" type="video/mp4" />
+        <source src="/video/wedding-video.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20 pointer-events-none">
         <p className="text-white text-6xl font-serif">10/25</p>

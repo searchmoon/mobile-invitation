@@ -8,7 +8,7 @@ export default function MainBanner() {
     // 이미지 프리로드
     const img = new Image();
     img.onload = () => setImageLoaded(true);
-    img.src = "/src/assets/images/main.jpg";
+    img.src = "/images/main.jpg";
   }, []);
 
   const mainTitle = [
@@ -53,7 +53,7 @@ export default function MainBanner() {
                 className={`object-cover w-full h-full filter brightness-100 transition-opacity duration-500 ${
                   imageLoaded ? "opacity-100" : "opacity-0"
                 }`}
-                src="/src/assets/images/main.jpg"
+                src="/images/main.jpg"
                 onLoad={() => setImageLoaded(true)}
               />
             </div>
