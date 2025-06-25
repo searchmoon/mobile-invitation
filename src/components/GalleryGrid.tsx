@@ -11,6 +11,7 @@ import MotionDiv from "./MotionDiv";
 export default function GalleryGrid() {
   const [showAll, setShowAll] = useState(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
@@ -19,6 +20,13 @@ export default function GalleryGrid() {
     eager: true, //즉시 가져오기(lazy 가 아니라 동기 라는 뜻)
     import: "default", //glob 옵션에서 불러올 모듈에서 default 속성만 추출하겠다는 설정
   });
+
+  // useEffect(() => {
+  //   // 이미지 프리로드
+  //   const img = new Image();
+  //   img.onload = () => setImageLoaded(true);
+  //   img.src = "/images/main.jpg";
+  // }, []);
 
   const galleryImages = Object.values(imageModules) as string[];
 
@@ -79,8 +87,13 @@ export default function GalleryGrid() {
                 <img
                   src={image || "/placeholder.svg?height=400&width=400"}
                   alt={`Gallery ${index + 1}`}
+                  loading="lazy"
+                  onLoad={() => setImageLoaded(true)}
                   className="object-cover w-full h-full"
                 />
+                {!imageLoaded && (
+                  <div className="absolute w-full h-full inset-0 bg-gray-400/50 animate-pulse"></div>
+                )}
               </div>
             </div>
           ))}
@@ -94,11 +107,7 @@ export default function GalleryGrid() {
           <span className="text-lightgray text-[14px]">{showAll ? "닫기" : "더보기"}</span>
           <ChevronDown
             strokeWidth={1}
-            className={`
-      w-[18px] h-[18px]
-      transition-transform duration-300
-      ${showAll ? "rotate-180" : ""}
-    `}
+            className={`w-[18px] h-[18px] transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}
           />
         </div>
       </MotionDiv>
