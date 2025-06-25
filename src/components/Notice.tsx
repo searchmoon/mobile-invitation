@@ -3,7 +3,7 @@ import MotionDiv from "./MotionDiv";
 export default function Notice() {
   return (
     <MotionDiv>
-      <div className="text-center space-y-3 py-6">
+      <div className="text-center space-y-3 py-6 bg-theme-light">
         <p className="opacity-60 whitespace-pre-wrap">소중한 분들을 초대합니다.</p>
         <p className="opacity-60 whitespace-pre-wrap">
           같은 곳을 바라보는 두 사람이 {"\n"}
