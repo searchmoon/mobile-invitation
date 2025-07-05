@@ -14,6 +14,14 @@
   --color-text: #928377;
 }
 
+/* 테마: White */
+.theme-white {
+  --color-bg: #f5f5f59d; /* slate-200 */
+  --color-light-bg: #ffffff9d; /* slate-50 */
+  --color-accent: #64748b; /* slate-500 */
+  --color-border: #e2e8f0; /* slate-300 */
+}
+
 /* 테마: Slate */
 .theme-slate {
   --color-bg: #f1f5f99d; /* slate-200 */

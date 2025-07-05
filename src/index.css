@@ -9,12 +9,20 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  /* font-family: system-ui, sans-serif; */
   background-color: #fff;
   color: #000;
 }
+
 @theme {
   --breakpoint-xs400: 400px;
+  /* font-family */
+  /* 외부 폰트 */
+  --font-autery: "autery", sans-serif;
+  --font-clarissa: "clarissa", cursive;
+  --font-loveScript: "loveScript", cursive;
+  /* 구글 폰트  */
+  --font-leagueScript: "League Script", cursive;
 }
 
 @theme inline {
@@ -142,4 +150,32 @@ div[style*="bg_zoom_control.png"] {
 /* zoom 레벨 관련 팝업 전부 숨기기 */
 div[style*="control.png"][style*="width: 29px"][style*="height: 15px"] {
   display: none !important;
+}
+
+@font-face {
+  font-family: "autery";
+  src: url("/public/fonts/Autery.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "scriptin";
+  src: url("/public/fonts/SCRIPTIN.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "loveScript";
+  src: url("/public/fonts/Love\ script.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "clarissa";
+  src: url("/public/fonts/Clarissa.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }

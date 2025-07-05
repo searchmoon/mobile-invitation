@@ -40,7 +40,7 @@ export default function AccountInfomation() {
   ];
 
   return (
-    <div className="bg-theme-light py-16 px-4 xs400:px-6">
+    <div className="py-16 px-4 xs400:px-6">
       <MotionDiv>
         <div className="text-center space-y-2 my-6">
           <p className="mb-5">마음 전하실 곳</p>

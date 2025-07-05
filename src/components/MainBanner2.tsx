@@ -6,11 +6,11 @@ export default function MainBanner2() {
 
   return (
     <MotionDiv initial={{ y: 0 }}>
-      <div className="relative w-full h-screen max-h-[900px] flex flex-col bg-theme-light transition-all duration-500">
+      <div className="relative w-full h-screen max-h-[900px] flex flex-col transition-all duration-500">
         {/* 메인 이미지 */}
         <div className="h-full w-full overflow-hidden">
           <img
-            src="/images/main.jpg"
+            src="/assets/images/main2.jpg"
             alt="cover_image"
             onLoad={() => setImageLoaded(true)} // 이미지가 완전히 load 된 후 실행됨
             className={`object-cover w-full h-full transition-all duration-1000 ${

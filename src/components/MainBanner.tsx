@@ -14,15 +14,10 @@ export default function MainBanner() {
 
   return (
     <MotionDiv initial={{ y: 0 }}>
-      <div className="relative w-full h-screen max-h-[900px] flex flex-col justify-between bg-theme-light transition-all duration-700">
+      <div className="relative w-full h-screen max-h-[900px] flex flex-col justify-between transition-all duration-700">
         {/* 상단 텍스트 */}
         <div className="px-4 xs400:px-6">
-          <h1
-            className="text-[48px] w-full break-all text-center text-lightgray transition-all duration-100 ease-out whitespace-normal border-b-1 border-t-1 border-gray-200 mt-[10vh] mb-[7vh]"
-            style={{
-              fontFamily: "serif",
-            }}
-          >
+          <h1 className="font-leagueScript tracking-[3px] font-extrabold text-[48px] w-full break-all text-center text-lightgray transition-all duration-100 ease-out whitespace-normal border-b-1 border-t-1 border-gray-300 mt-[10vh] mb-[7vh]">
             {mainTitle[0].title}
           </h1>
         </div>
@@ -43,7 +38,7 @@ export default function MainBanner() {
               className={`object-cover w-full h-full filter brightness-100 transition-opacity duration-500 ${
                 imageLoaded ? "opacity-100" : "opacity-0"
               }`}
-              src="/images/main.jpg"
+              src="/assets/images/main.jpg"
               onLoad={() => setImageLoaded(true)}
             />
             {/* 투명 오버레이 */}
