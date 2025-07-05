@@ -1,10 +1,15 @@
 import { useState, useEffect, useMemo } from "react";
-import { Calendar } from "@/components/ui/calendar";
-import { Separator } from "@/components/ui/separator";
+// import { Calendar } from "@/components/ui/calendar";
+// import { Separator } from "@/components/ui/separator";
 import { Heart } from "lucide-react";
-import { ko } from "date-fns/locale";
-import CountCard from "./calendar/CountCard";
+// import { ko } from "date-fns/locale";
+import { CountCard2 } from "./calendar/CountCard";
 import MotionDiv from "./MotionDiv";
+import DailyCalendar from "./calendar/DailyCalendar";
+// import DailyCalendar2, { DailyCalendar3 } from "./calendar/DailyCalendar2";
+// import MonthCalendar from "./calendar/MonthCalendar";
+// import CountdownMinimal from "./CountdownMinimal";
+// import CountdownTypography from "./CountDownTypography";
 
 export default function WeddingCalendar() {
   const [timeLeft, setTimeLeft] = useState({
@@ -36,7 +41,7 @@ export default function WeddingCalendar() {
   }, [weddingDate]);
 
   return (
-    <div className="flex flex-col items-center justify-center py-18 px-4 xs400:px-6 bg-theme-light">
+    <div className="flex flex-col items-center justify-center py-18 px-4 xs400:px-6">
       <div className="w-full">
         <MotionDiv>
           {/* 제목 */}
@@ -54,67 +59,53 @@ export default function WeddingCalendar() {
             <p className="font-light text-sm opacity-50">Saturday, October 25, 2025 | PM 1:20</p>
           </div>
         </MotionDiv>
-
         <MotionDiv>
-          {/* 구분선 */}
-          <Separator className="my-8 bg-black opacity-10" />
-          <div className="w-full mb-8">
-            <Calendar
-              mode="single"
-              selected={weddingDate}
-              locale={ko}
-              className="w-full"
-              classNames={{
-                months: "flex flex-col space-y-4",
-                caption_label: "hidden", // 달 숨기기
-                nav: "hidden", // 달 넘기기 버튼 숨기기
-                table: "w-full border-collapse",
-                head_row: "grid grid-cols-7 gap-y-6 mb-1 xs400:mb-2 max-mb-4",
-                head_cell:
-                  "text-center font-normal text-sm text-gray-700 [&:first-child]:text-red-400 [&:last-child]:text-red-400",
-                row: "grid grid-cols-7 my-4",
-                cell: "text-center p-0 relative flex justify-center items-center",
-                day: "h-8 w-8 p-0 font-extralight text-sm aria-selected:opacity-100 text-gray-700 [&[data-today]]:bg-transparent [&[data-today]]:text-gray-700",
-                day_selected: "bg-rose-300 text-white rounded-full",
-                day_today: "bg-gray-200 rounded-full font-extralight",
-                day_outside: "text-transparent opacity-0",
-                day_disabled: "text-gray-400 opacity-50",
-                day_range_middle: "aria-selected:bg-transparent aria-selected:text-gray-700",
-                day_hidden: "invisible",
-              }}
-              modifiers={{
-                sunday: (date) => date.getDay() === 0,
-                saturday: (date) => date.getDay() === 6,
-              }}
-              modifiersClassNames={{
-                sunday: "text-red-400 [&:not([aria-selected])]:text-rose-400",
-                saturday: "text-red-400 [&:not([aria-selected])]:text-rose-400",
-              }}
-              defaultMonth={weddingDate}
-              showOutsideDays={false}
-            />
-          </div>
+          <DailyCalendar />
         </MotionDiv>
 
+        {/* <MotionDiv>
+          <div className="flex space-x-4 px-4 py-8">
+            <DailyCalendar2 />
+            <DailyCalendar3 />
+          </div>
+        </MotionDiv> */}
+
+        {/* <MonthCalendar /> */}
+
         <MotionDiv>
           {/* 구분선 */}
-          <Separator className="my-8 bg-black opacity-10" />
+          {/* <Separator className="my-8 bg-black opacity-10" /> */}
 
           {/* 카운트다운 */}
-          <div className="grid grid-cols-4 justify-center w-full gap-x-2 mb-8">
+          {/* <div className="grid grid-cols-4 justify-center w-full gap-x-2 mb-8">
             <CountCard countNum={timeLeft.days} title="DAYS" />
             <CountCard countNum={timeLeft.hours} title="HOURS" />
             <CountCard countNum={timeLeft.minutes} title="MINUTES" />
             <CountCard countNum={timeLeft.seconds} title="SECONDS" />
+          </div> */}
+          <div className="flex justify-center w-full gap-x-4 mt-4 mb-8">
+            <CountCard2 countNum={timeLeft.days} title="DAYS" />
+            <CountCard2 countNum={timeLeft.hours} title="HOURS" />
+            <CountCard2 countNum={timeLeft.minutes} title="MINUTES" />
+            <CountCard2 countNum={timeLeft.seconds} title="SECONDS" />
           </div>
+          {/* <CountdownMinimal */}
+          {/* <CountdownMinimal
+            timeLeft={{
+              days: timeLeft.days,
+              hours: timeLeft.hours,
+              minutes: timeLeft.minutes,
+              seconds: timeLeft.seconds,
+            }}
+          /> */}
 
           {/* 하단 메시지 */}
           <div className="pt-8">
-            <p className="flex items-center justify-center text-sm leading-snug text-gray-700">
+            <p className="flex items-baseline justify-center text-sm leading-snug text-gray-700">
               정순
               <Heart className="mx-2 w-3 h-3 fill-current" />
-              찬돌 결혼식이{" "}
-              <span className="mx-1 text-rose-500 font-medium text-lg">{timeLeft.days}일</span>
+              찬돌 결혼식이
+              <span className="mx-1 text-gray-500 font-medium text-lg">{timeLeft.days}일</span>
               남았습니다
             </p>
           </div>

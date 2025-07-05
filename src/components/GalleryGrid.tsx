@@ -11,12 +11,12 @@ import MotionDiv from "./MotionDiv";
 export default function GalleryGrid() {
   const [showAll, setShowAll] = useState(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const [imageLoaded, setImageLoaded] = useState(false);
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
   // 갤러리 이미지들은 나중에 supabase 에서 가지고오는 이미지로 대체하기.
-  const imageModules = import.meta.glob("/public/images/gallery/bebe*.jpg", {
+  const imageModules = import.meta.glob("/public/assets/images/gallery/JECH_*.webp", {
+    // const imageModules = import.meta.glob("/public/images/gallery2/JECH_*.jpg", {
     eager: true, //즉시 가져오기(lazy 가 아니라 동기 라는 뜻)
     import: "default", //glob 옵션에서 불러올 모듈에서 default 속성만 추출하겠다는 설정
   });
@@ -25,10 +25,22 @@ export default function GalleryGrid() {
   //   // 이미지 프리로드
   //   const img = new Image();
   //   img.onload = () => setImageLoaded(true);
-  //   img.src = "/images/main.jpg";
+  //   img.src = "/images/main2.jpg";
   // }, []);
 
   const galleryImages = Object.values(imageModules) as string[];
+
+  const [imageLoaded, setImageLoaded] = useState<boolean[]>(
+    Array(galleryImages.length).fill(false),
+  );
+
+  const handleImageLoad = (index: number) => {
+    setImageLoaded((prev) => {
+      const newLoaded = [...prev];
+      newLoaded[index] = true;
+      return newLoaded;
+    });
+  };
 
   const visibleImages = showAll ? galleryImages : galleryImages.slice(0, 9);
 
@@ -70,7 +82,7 @@ export default function GalleryGrid() {
   };
 
   return (
-    <div className={`bg-theme-light`}>
+    <div>
       <div className="flex justify-center pt-18 pb-8">
         <MotionDiv>
           <p className="text-3xl font-serif text-gray opacity-90 tracking-wider">GALLERY</p>
@@ -85,13 +97,15 @@ export default function GalleryGrid() {
                 onClick={() => handleImageClick(index)}
               >
                 <img
-                  src={image || "/placeholder.svg?height=400&width=400"}
+                  src={image || "/placeholder.svg"}
                   alt={`Gallery ${index + 1}`}
                   loading="lazy"
-                  onLoad={() => setImageLoaded(true)}
-                  className="object-cover w-full h-full"
+                  onLoad={() => handleImageLoad(index)}
+                  className={`object-cover w-full h-full transition-opacity duration-500 ${
+                    imageLoaded[index] ? "opacity-100" : "opacity-0"
+                  }`}
                 />
-                {!imageLoaded && (
+                {!imageLoaded[index] && (
                   <div className="absolute w-full h-full inset-0 bg-gray-400/50 animate-pulse"></div>
                 )}
               </div>

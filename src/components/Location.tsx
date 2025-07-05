@@ -5,7 +5,7 @@ import KakaoMap from "./location/KakaoMap";
 
 function Location() {
   return (
-    <div className="bg-[#F5F3F2] py-16 bg-theme-light">
+    <div className="py-16">
       <MotionDiv>
         <div className="text-center mb-10">
           <p

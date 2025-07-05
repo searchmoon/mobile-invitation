@@ -6,7 +6,7 @@ export default function MainBanner3() {
 
   return (
     <MotionDiv initial={{ y: 0 }}>
-      <section className="relative w-full h-screen max-h-[900px] flex flex-col bg-theme-light transition-all duration-700">
+      <section className="relative w-full h-screen max-h-[900px] flex flex-col transition-all duration-700">
         {/* 상단 이름 */}
         <header className="px-8 pt-12 pb-2 z-10">
           <div className="flex justify-between items-center">
@@ -29,7 +29,7 @@ export default function MainBanner3() {
         <main className="flex-grow flex items-center justify-center px-8 min-h-0">
           <div className="relative h-full aspect-[2/3] overflow-hidden rounded-full">
             <img
-              src="/images/main.jpg"
+              src="/assets/images/main.jpg"
               alt="cover_image"
               onLoad={() => setImageLoaded(true)}
               className={`w-full h-full object-cover transition-all duration-1000 ${
