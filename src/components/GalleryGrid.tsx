@@ -15,8 +15,8 @@ export default function GalleryGrid() {
   const [current, setCurrent] = useState(0);
 
   // 갤러리 이미지들은 나중에 supabase 에서 가지고오는 이미지로 대체하기.
+
   const imageModules = import.meta.glob("/public/assets/images/gallery/JECH_*.webp", {
-    // const imageModules = import.meta.glob("/public/images/gallery2/JECH_*.jpg", {
     eager: true, //즉시 가져오기(lazy 가 아니라 동기 라는 뜻)
     import: "default", //glob 옵션에서 불러올 모듈에서 default 속성만 추출하겠다는 설정
   });
@@ -88,10 +88,11 @@ export default function GalleryGrid() {
           <p className="text-3xl font-serif text-gray opacity-90 tracking-wider">GALLERY</p>
         </MotionDiv>
       </div>
-      <MotionDiv>
-        <div className="w-full grid gap-[2px] grid-cols-3">
-          {visibleImages.map((image, index) => (
-            <div key={index} className="flex justify-center items-center">
+      {/* <MotionDiv> */}
+      <div className="w-full grid gap-[2px] grid-cols-3">
+        {visibleImages.map((image, index) => (
+          <div key={index} className="flex justify-center items-center">
+            <MotionDiv viewport={{ once: true }}>
               <div
                 className="relative w-full aspect-square overflow-hidden cursor-pointer hover:opacity-80 transition-opacity flex items-center"
                 onClick={() => handleImageClick(index)}
@@ -99,20 +100,23 @@ export default function GalleryGrid() {
                 <img
                   src={image || "/placeholder.svg"}
                   alt={`Gallery ${index + 1}`}
-                  loading="lazy"
-                  onLoad={() => handleImageLoad(index)}
+                  loading="lazy" // 필수
+                  onLoad={() => handleImageLoad(index)} // onLoad 이벤트는 이미지가 네트워크에서 받아와서 브라우저의 이미지 버퍼에 들어온 시점
                   className={`object-cover w-full h-full transition-opacity duration-500 ${
                     imageLoaded[index] ? "opacity-100" : "opacity-0"
                   }`}
+                  style={{ willChange: "opacity" }}
+                  decoding="async" //이미지를 비동기적으로 디코딩하기. 여러 이미지 로드할때, 지연이나 끊김 줄여줌
                 />
                 {!imageLoaded[index] && (
                   <div className="absolute w-full h-full inset-0 bg-gray-400/50 animate-pulse"></div>
                 )}
               </div>
-            </div>
-          ))}
-        </div>
-      </MotionDiv>
+            </MotionDiv>
+          </div>
+        ))}
+      </div>
+      {/* </MotionDiv> */}
       <MotionDiv>
         <div
           className="flex flex-col items-center justify-center py-6 cursor-pointer"
