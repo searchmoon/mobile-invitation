@@ -7,6 +7,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import MotionDiv from "./MotionDiv";
+import GalleryImage from "./galleryGrid/GalleryImage";
 
 export default function GalleryGrid() {
   const [showAll, setShowAll] = useState(false);
@@ -14,42 +15,18 @@ export default function GalleryGrid() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
-  // 갤러리 이미지들은 나중에 supabase 에서 가지고오는 이미지로 대체하기.
-
-  const imageModules = import.meta.glob("/public/assets/images/gallery/JECH_*.webp", {
+  const imageModules = import.meta.glob("/public/assets/images/gallery/JECH_*.jpg", {
     eager: true, //즉시 가져오기(lazy 가 아니라 동기 라는 뜻)
     import: "default", //glob 옵션에서 불러올 모듈에서 default 속성만 추출하겠다는 설정
   });
 
-  // useEffect(() => {
-  //   // 이미지 프리로드
-  //   const img = new Image();
-  //   img.onload = () => setImageLoaded(true);
-  //   img.src = "/images/main2.jpg";
-  // }, []);
-
   const galleryImages = Object.values(imageModules) as string[];
-
-  const [imageLoaded, setImageLoaded] = useState<boolean[]>(
-    Array(galleryImages.length).fill(false),
-  );
-
-  const handleImageLoad = (index: number) => {
-    setImageLoaded((prev) => {
-      const newLoaded = [...prev];
-      newLoaded[index] = true;
-      return newLoaded;
-    });
-  };
 
   const visibleImages = showAll ? galleryImages : galleryImages.slice(0, 9);
 
   // Carousel API 이벤트 리스너
   useEffect(() => {
-    if (!api) {
-      return;
-    }
-
+    if (!api) return;
     setCurrent(api.selectedScrollSnap());
 
     api.on("select", () => {
@@ -88,35 +65,13 @@ export default function GalleryGrid() {
           <p className="text-3xl font-serif text-gray opacity-90 tracking-wider">GALLERY</p>
         </MotionDiv>
       </div>
-      {/* <MotionDiv> */}
-      <div className="w-full grid gap-[2px] grid-cols-3">
-        {visibleImages.map((image, index) => (
-          <div key={index} className="flex justify-center items-center">
-            <MotionDiv viewport={{ once: true }}>
-              <div
-                className="relative w-full aspect-square overflow-hidden cursor-pointer hover:opacity-80 transition-opacity flex items-center"
-                onClick={() => handleImageClick(index)}
-              >
-                <img
-                  src={image || "/placeholder.svg"}
-                  alt={`Gallery ${index + 1}`}
-                  loading="lazy" // 필수
-                  onLoad={() => handleImageLoad(index)} // onLoad 이벤트는 이미지가 네트워크에서 받아와서 브라우저의 이미지 버퍼에 들어온 시점
-                  className={`object-cover w-full h-full transition-opacity duration-500 ${
-                    imageLoaded[index] ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{ willChange: "opacity" }}
-                  decoding="async" //이미지를 비동기적으로 디코딩하기. 여러 이미지 로드할때, 지연이나 끊김 줄여줌
-                />
-                {!imageLoaded[index] && (
-                  <div className="absolute w-full h-full inset-0 bg-gray-400/50 animate-pulse"></div>
-                )}
-              </div>
-            </MotionDiv>
-          </div>
-        ))}
-      </div>
-      {/* </MotionDiv> */}
+      <MotionDiv>
+        <div className="w-full grid gap-[2px] grid-cols-3">
+          {visibleImages.map((image, index) => (
+            <GalleryImage key={image} image={image} index={index} onClick={handleImageClick} />
+          ))}
+        </div>
+      </MotionDiv>
       <MotionDiv>
         <div
           className="flex flex-col items-center justify-center py-6 cursor-pointer"
@@ -151,7 +106,7 @@ export default function GalleryGrid() {
                 {galleryImages.map((image, index) => (
                   <CarouselItem key={index} className="h-full flex items-center justify-center">
                     <img
-                      src={image || "/placeholder.svg"}
+                      src={image}
                       alt={`Gallery ${index + 1}`}
                       className="object-contain max-h-screen mx-auto w-auto"
                     />
