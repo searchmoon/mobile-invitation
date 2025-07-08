@@ -23,6 +23,7 @@ export default function Preview() {
   };
 
   const themeColors = [
+    { name: "white", color: "bg-white" },
     { name: "slate", color: "bg-slate-200" },
     { name: "amber", color: "bg-amber-200" },
     { name: "rose", color: "bg-rose-200" },
@@ -32,7 +33,7 @@ export default function Preview() {
   ];
 
   return (
-    <div className={`flex-col w-full max-w-[460px] theme-${themeColor}`}>
+    <div className={`flex-col w-full max-w-[460px] theme-${themeColor} bg-theme-light`}>
       <div className="absolute right-0 top-3 flex flex-col z-50">
         <p>pick theme</p>
         <div className="flex">
