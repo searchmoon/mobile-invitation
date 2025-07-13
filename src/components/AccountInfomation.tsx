@@ -1,41 +1,48 @@
 import { Flower2 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
-import PersonalAccount from "./accountInfo/PersonalAccount";
+
 import MotionDiv from "./MotionDiv";
+import PersonalInfo from "./accountInfo/PersonalInfo";
 
 export default function AccountInfomation() {
   const groomAccount = [
     {
       name: "덩단훈",
       bank: "국민은행",
-      accountNumber: "010-1111-1111",
+      accountNumber: "012220-1111-1111",
+      phoneNumber: "010-1111-1111",
     },
     {
       name: "덩단훈 아버지",
       bank: "국민은행",
-      accountNumber: "010-2222-1111",
+      accountNumber: "02210-2222-1111",
+      phoneNumber: "010-2222-1111",
     },
     {
       name: "덩단훈 어머니",
       bank: "국민은행",
-      accountNumber: "010-3333-1111",
+      accountNumber: "010222-3333-1111",
+      phoneNumber: "010-3333-1111",
     },
   ];
   const brideAccount = [
     {
       name: "문덩흔",
       bank: "국민은행",
-      accountNumber: "010-4444-1111",
+      accountNumber: "032132-4444-1111",
+      phoneNumber: "010-4444-1111",
     },
     {
       name: "문덩흔 아버지 (문연기)",
       bank: "국민은행",
-      accountNumber: "010-5555-1111",
+      accountNumber: "023123-5555-1111",
+      phoneNumber: "010-5555-1111",
     },
     {
       name: "문덩흔 어머니 (신기루)",
       bank: "국민은행",
-      accountNumber: "010-6666-1111",
+      accountNumber: "0123123-6666-1111",
+      phoneNumber: "010-6666-1111",
     },
   ];
 
@@ -64,8 +71,8 @@ export default function AccountInfomation() {
               </AccordionTrigger>
               <AccordionContent className="p-5">
                 {groomAccount.map((item, index) => (
-                  <PersonalAccount
-                    key={item.accountNumber}
+                  <PersonalInfo
+                    key={item.name}
                     items={item}
                     isLast={index === groomAccount.length - 1}
                   />
@@ -83,7 +90,7 @@ export default function AccountInfomation() {
               </AccordionTrigger>
               <AccordionContent className="p-5">
                 {brideAccount.map((item, index) => (
-                  <PersonalAccount
+                  <PersonalInfo
                     key={item.accountNumber}
                     items={item}
                     isLast={index === brideAccount.length - 1}
