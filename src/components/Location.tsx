@@ -1,4 +1,4 @@
-import { Bus, Car, Copy, ParkingCircle, Phone, Train } from "lucide-react";
+import { Bus, MapPin, ParkingCircle, Train } from "lucide-react";
 import { Separator } from "./ui/separator";
 import MotionDiv from "./MotionDiv";
 import KakaoMap from "./location/KakaoMap";
@@ -19,18 +19,6 @@ function Location() {
         </div>
       </MotionDiv>
       <MotionDiv>
-        <div className="text-center py-10 px-4 xs400:px-6 space-y-2">
-          <div className="flex justify-center items-center gap-2">
-            <span>웨딩시티 신도림 (8층) 맞나?</span>
-            <Phone className="w-4 h-4 ml-1" />
-          </div>
-          <div className="opacity-50 flex justify-center items-center gap-2">
-            <span>서울특별시 구로구 새말로 97 신도림테크노마트 8층 웨딩시티</span>
-            <Copy className="w-4 h-4" />
-          </div>
-        </div>
-      </MotionDiv>
-      <MotionDiv>
         <div className="w-full py-4">
           <KakaoMap />
         </div>
@@ -40,14 +28,38 @@ function Location() {
         <MotionDiv>
           <div>
             <div className="flex py-2 items-center">
-              <Car className="w-4 h-4 mr-2 text-default" />
-              <span className="font-semibold text-default">자차</span>
+              <MapPin className="w-4 h-4 mr-2 text-default" />
+              <span className="font-semibold text-default">위치</span>
             </div>
             <div className="py-4">
-              <p>네비게이션 : '테크노마트 웨딩시티' 검색</p>
-              <p>서울특별시 구로구 새말로 97 신도림테크노마트</p>
+              <p>주소 : 서울특별시 구로구 새말로 97 신도림테크노마트</p>
+              <p>네비게이션 : '웨딩시티 신도림' 검색</p>
             </div>
-            <Separator className="my-2 bg-default" />
+            <Separator className="my-1 bg-gray-200" />
+          </div>
+        </MotionDiv>
+        <MotionDiv>
+          <div>
+            <div className="flex py-2 items-center">
+              <Train className="w-4 h-4 mr-2 text-default" />
+              <span className="font-semibold text-default">지하철</span>
+            </div>
+            <div className="py-4">
+              <div className="flex items-center mb-2">
+                <div className="flex items-center justify-center bg-blue-600 text-white rounded-full w-4.5 h-4.5 mr-0.5">
+                  <p>1</p>
+                </div>
+                <div className="flex items-center justify-center bg-green-600 text-white rounded-full w-4.5 h-4.5 mr-1">
+                  <p>2</p>
+                </div>
+                <strong className="">신도림역 (1,2호선)</strong>
+              </div>
+              <p>
+                신도림역 3번 출구 → 테크노마트 판매동 지하 1층에서 엘레베이터 또는 에스컬레이터
+                이용해서 8층
+              </p>
+            </div>
+            <Separator className="my-1 bg-gray-200" />
           </div>
         </MotionDiv>
         <MotionDiv>
@@ -80,33 +92,10 @@ function Location() {
                 공항 : 6018
               </p>
             </div>
-            <Separator className="my-2 bg-default" />
+            <Separator className="my-1 bg-gray-200" />
           </div>
         </MotionDiv>
-        <MotionDiv>
-          <div>
-            <div className="flex py-2 items-center">
-              <Train className="w-4 h-4 mr-2 text-default" />
-              <span className="font-semibold text-default">지하철</span>
-            </div>
-            <div className="py-4">
-              <div className="flex items-center mb-2">
-                <div className="flex items-center justify-center bg-blue-600 text-white rounded-full w-4.5 h-4.5 mr-0.5">
-                  <p>1</p>
-                </div>
-                <div className="flex items-center justify-center bg-green-600 text-white rounded-full w-4.5 h-4.5 mr-1">
-                  <p>2</p>
-                </div>
-                <strong className="">신도림역 (1,2호선)</strong>
-              </div>
-              <p>
-                신도림역 3번 출구 → 테크노마트 판매동 지하 1층에서 엘레베이터 또는 에스컬레이터
-                이용해서 8층
-              </p>
-            </div>
-            <Separator className="my-2 bg-default" />
-          </div>
-        </MotionDiv>
+
         <MotionDiv>
           <div>
             <div className="flex py-2 items-center">
