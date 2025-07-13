@@ -9,9 +9,9 @@ function App() {
 
   useEffect(() => {
     // 1.5초 후 페이드아웃 시작
-    const timer1 = setTimeout(() => setFadeOut(true), 3500);
+    const timer1 = setTimeout(() => setFadeOut(true), 3000);
     // 3초 후 SplashScreen 제거
-    const timer2 = setTimeout(() => setShowSplash(false), 3500);
+    const timer2 = setTimeout(() => setShowSplash(false), 4500);
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
