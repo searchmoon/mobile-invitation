@@ -29,7 +29,7 @@ export default function MotionDiv({
         y: { duration: 1 },
         ...(transition as object),
       }}
-      viewport={{ once: false, ...(viewport as object) }} // 화면에 들어올때마다 애니메이션 재실행되게
+      viewport={{ once: true, ...(viewport as object) }} // 화면에 들어올때, 한번만 애니메이션 실행
       className={className}
     >
       {children}
