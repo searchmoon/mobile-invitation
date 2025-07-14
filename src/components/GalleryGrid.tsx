@@ -1,5 +1,5 @@
 import { ChevronDown, ChevronLeft, ChevronRight, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import MotionDiv from "./MotionDiv";
 import GalleryImage from "./galleryGrid/GalleryImage";
+import useModalScrollLock from "@/hooks/useModalScrollLock";
 
 export default function GalleryGrid() {
   const [showAll, setShowAll] = useState(false);
@@ -15,23 +16,35 @@ export default function GalleryGrid() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
-  const imageModules = import.meta.glob("/public/assets/images/gallery/JECH_*.jpg", {
-    eager: true, //즉시 가져오기(lazy 가 아니라 동기 라는 뜻)
-    import: "default", //glob 옵션에서 불러올 모듈에서 default 속성만 추출하겠다는 설정
-  });
+  // 이미지 목록은 useMemo로 캐싱 (빌드타임에 결정, 변하지 않음)
+  const galleryImages = useMemo(() => {
+    const imageModules = import.meta.glob("/public/assets/images/gallery/JECH_*.jpg", {
+      eager: true,
+      import: "default",
+    });
+    return Object.values(imageModules) as string[];
+  }, []);
 
-  const galleryImages = Object.values(imageModules) as string[];
+  // visibleImages도 useMemo (galleryImages, showAll이 바뀔 때만 slice)
+  const visibleImages = useMemo(
+    () => (showAll ? galleryImages : galleryImages.slice(0, 9)),
+    [showAll, galleryImages],
+  );
 
-  const visibleImages = showAll ? galleryImages : galleryImages.slice(0, 9);
+  // 모달이 열렸을 때 줌을 허용하고, 백그라운드 스크롤 막기
+  useModalScrollLock(selectedImage !== null);
 
   // Carousel API 이벤트 리스너
   useEffect(() => {
     if (!api) return;
     setCurrent(api.selectedScrollSnap());
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
+    const onSelect = () => setCurrent(api.selectedScrollSnap());
+    api.on("select", onSelect);
+
+    return () => {
+      api.off("select", onSelect);
+    };
   }, [api]);
 
   // 선택된 이미지가 변경될 때 carousel을 해당 인덱스로 이동
