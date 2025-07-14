@@ -22,6 +22,8 @@ const MixedMatter = ({ entries }: { entries: GuestBookEntry[] }) => {
   const runnerRef = useRef<Matter.Runner | null>(null); // 애니메이션 루프
   const [selectedEntry, setSelectedEntry] = useState<GuestBookEntry | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const WIDTH = 360;
+  const HEIGHT = 320;
 
   useEffect(() => {
     const Engine = Matter.Engine;
@@ -46,11 +48,12 @@ const MixedMatter = ({ entries }: { entries: GuestBookEntry[] }) => {
       element: sceneRef.current!, // 위에서 만든 DOM 참조. 마지막 !는 null 이 아님을 단언
       engine: engine, // 렌더링에 쓸 엔진
       options: {
-        width: 800,
-        height: 600,
+        width: WIDTH,
+        height: HEIGHT,
+        pixelRatio: window.devicePixelRatio || 1, // 고해상도에서도 화질이 선명하게 나오게 하는 옵션 추가
         showAngleIndicator: false,
         wireframes: false, // 실제 색상/모양을 보이게
-        background: "#fff", // 배경색
+        background: "", // 배경색
       },
     });
 
@@ -63,21 +66,23 @@ const MixedMatter = ({ entries }: { entries: GuestBookEntry[] }) => {
       const context = render.context; // 캔버스 컨텍스트
       const bodies = Matter.Composite.allBodies(engine.world);
 
-      context.font = "14px sans-serif";
-      context.fillStyle = "#000"; // 글자색
+      context.font = "12px sans-serif";
+      context.fillStyle = "#fff"; // 글자 색
+      // context.strokeStyle = "#000"; // 글자 테두리
+      context.lineWidth = 2;
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.globalAlpha = 0.7;
+      context.lineWidth = 2;
 
       bodies.forEach((body) => {
         const postData = (body as BodyWithPostData).postData;
         if (postData) {
           const { x, y } = body.position;
-          context.fillText(postData.name, x - 20, y + 5); // 위치 보정
+          // context.strokeText(postData.name, x, y); // 테두리 먼저
+          context.fillText(postData.name, x, y); // 이렇게 하면 중앙에 텍스트 위치
         }
       });
-      context.fillStyle = "#fff"; // 밝은 글자
-      context.strokeStyle = "#000"; // 검정 테두리
-      context.lineWidth = 2;
-      // context.strokeText(postData.name, x - 20, y + 5); // 테두리 먼저
-      // context.fillText(postData.name, x - 20, y + 5); // 텍스트 그리기
     });
 
     // create runner
@@ -89,20 +94,40 @@ const MixedMatter = ({ entries }: { entries: GuestBookEntry[] }) => {
     Matter.World.clear(engine.world, false); // 기존 바디만 제거, 제약조건은 유지
 
     const shapes = entries.map((entry) => {
-      const size = Common.random(10, 50); // 10-50 사이의 랜덤크기 생성
+      const size = Common.random(15, 40); // 10-50 사이의 랜덤크기 생성
       const body = Bodies.circle(100, 0, size) as BodyWithPostData;
       body.postData = entry; // 도형에 객체 정보 연결!
       return body;
     });
+
     Composite.add(engineWorld, shapes);
 
     // 벽 추가
     Composite.add(engineWorld, [
       // walls
-      Bodies.rectangle(400, 0, 800, 50, { isStatic: true }), // 위쪽 벽
-      Bodies.rectangle(400, 600, 800, 50, { isStatic: true }), // 아래쪽 벽
-      Bodies.rectangle(800, 300, 50, 600, { isStatic: true }), // 오른쪽 벽
-      Bodies.rectangle(0, 300, 50, 600, { isStatic: true }), // 왼쪽 벽 isStatic true 는 벽이 움직이지 않게
+      // Bodies.rectangle(250, 0, 500, 10, { isStatic: true }), // 위쪽 벽 순서대로 x좌표, y좌표, width, height
+      // Bodies.rectangle(250, 400, 500, 10, { isStatic: true }), // 아래쪽 벽
+      // Bodies.rectangle(500, 200, 10, 400, { isStatic: true }), // 오른쪽 벽
+      // Bodies.rectangle(0, 200, 10, 400, { isStatic: true }), // 왼쪽 벽 isStatic true 는 벽이 움직이지 않게
+      Bodies.rectangle(WIDTH / 2, 0, WIDTH, 10, {
+        isStatic: true,
+        render: { fillStyle: "#64748b" }, // slate-500
+      }),
+      // bottom
+      Bodies.rectangle(WIDTH / 2, HEIGHT, WIDTH, 10, {
+        isStatic: true,
+        render: { fillStyle: "#64748b" },
+      }),
+      // right
+      Bodies.rectangle(WIDTH, HEIGHT / 2, 10, HEIGHT, {
+        isStatic: true,
+        render: { fillStyle: "#64748b" },
+      }),
+      // left
+      Bodies.rectangle(0, HEIGHT / 2, 10, HEIGHT, {
+        isStatic: true,
+        render: { fillStyle: "#64748b" },
+      }),
     ]);
 
     // add mouse control (마우스 인터렉션)
@@ -140,7 +165,7 @@ const MixedMatter = ({ entries }: { entries: GuestBookEntry[] }) => {
     // fit the render viewport to the scene
     Matter.Render.lookAt(render, {
       min: { x: 0, y: 0 },
-      max: { x: 800, y: 600 },
+      max: { x: WIDTH, y: HEIGHT },
     });
 
     // cleanup (컴포넌트 제거 시 리소스 정리)
@@ -158,25 +183,18 @@ const MixedMatter = ({ entries }: { entries: GuestBookEntry[] }) => {
   }, [entries]);
 
   return (
-    <div>
+    <>
       <div
         ref={sceneRef}
-        className="relative w-full h-full flex items-center justify-center bg-slate-900 rounded-lg shadow-lg"
-        style={{ minHeight: "600px", minWidth: "800px" }}
-      >
-        {/* {selectedEntry && (
-          <div className="absolute">
-            <h2>{selectedEntry?.name}</h2>
-            <p>{selectedEntry?.message}</p>
-          </div>
-        )} */}
-      </div>
+        className="scroll-auto overflow-auto w-full h-full flex items-center justify-center"
+        style={{ minHeight: HEIGHT, minWidth: WIDTH }}
+      ></div>
       <DialogExample
         selectedEntry={selectedEntry}
         open={isModalOpen}
         onOpenChange={setIsModalOpen}
       />
-    </div>
+    </>
   );
 };
 
