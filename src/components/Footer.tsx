@@ -13,7 +13,6 @@ function Footer() {
       }),
     );
   };
-  const thumbnailImg = "/assets/JECH_45-BaczHcok.jpg";
 
   // useEffect(() => {
   //   console.log("VITE_KAKAO_API_KEY:", import.meta.env.VITE_KAKAO_API_KEY);
