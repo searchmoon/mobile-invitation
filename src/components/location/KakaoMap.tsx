@@ -3,24 +3,22 @@ import { Button } from "../ui/button";
 
 export default function KakaoMap() {
   const locationName = "웨딩시티 신도림점";
-  const address = "서울특별시 구로구 새말로 97";
+  const naverLocationName = "테크노마트 웨딩시티";
   const coordinates = { lat: 37.507171, lng: 126.890251 };
 
   const mapConfigs = [
     {
       type: "kakao",
       label: "카카오맵",
-      url: `https://map.kakao.com/link/map/${encodeURIComponent(locationName)},${coordinates.lat},${coordinates.lng}`,
+      url: `https://map.kakao.com/link/search/${encodeURIComponent(locationName)}`,
       imgSrc: "/assets/icons/kakaomap.webp",
-      borderColor: "border-[#fae100]/30",
       textColor: "text-black",
     },
     {
       type: "naver",
       label: "네이버지도",
-      url: `https://map.naver.com/v5/search/${encodeURIComponent(address)}`,
+      url: `https://map.naver.com/v5/search/${encodeURIComponent(naverLocationName)}`,
       imgSrc: "/assets/icons/navermap.webp",
-      borderColor: "border-[#2db400]/20",
       textColor: "text-black",
     },
     {
@@ -28,7 +26,6 @@ export default function KakaoMap() {
       label: "구글지도",
       url: `https://www.google.com/maps/search/${encodeURIComponent(locationName)}/@${coordinates.lat},${coordinates.lng},17z`,
       imgSrc: "/assets/icons/googlemap.webp",
-      borderColor: "border-black/10",
       textColor: "text-black",
     },
   ];
@@ -50,7 +47,7 @@ export default function KakaoMap() {
         {mapConfigs.map((config) => (
           <Button
             key={config.type}
-            className={`flex items-center justify-center gap-2 font-medium hover:opacity-90 transition-opacity border ${config.borderColor} ${config.textColor}`}
+            className={`flex items-center justify-center gap-2 font-medium hover:opacity-90 transition-opacity border border-black/10 ${config.textColor} shadow-sm`}
             onClick={() => openMap(config.url)}
           >
             <img src={config.imgSrc} className="w-4 h-4 rounded-xs" alt={config.type} />

@@ -8,27 +8,21 @@ import AccountInfomation from "@/components/AccountInfomation";
 import Location from "@/components/Location";
 import ScrollVideoComponent from "@/components/video/ScrollVideo";
 import Notice from "@/components/Notice";
+import QandA from "@/components/QandA";
 import Footer from "@/components/Footer";
-import PickTheme from "@/components/PickTheme";
-
-export type ThemeColor = "white" | "slate" | "amber" | "rose" | "indigo" | "teal" | "mood";
 
 export default function Preview() {
-  const [themeColor, setThemeColor] = useState<ThemeColor>("white");
-
   const RandomBanner = useMemo(() => {
     const banners = [MainBanner, MainBanner2, MainBanner3];
     const randomIndex = Math.floor(Math.random() * banners.length);
     return banners[randomIndex];
   }, []);
 
-  const handlePickColor = (name: ThemeColor) => {
-    setThemeColor(name);
-  };
+  // const themeColor = "slate";
+  const themeColor = "white";
 
   return (
     <div className={`flex-col w-full max-w-[460px] theme-${themeColor} bg-theme-light`}>
-      <PickTheme handlePickColor={handlePickColor} />
       <RandomBanner />
       <Notice />
       <GalleryGrid />
@@ -36,6 +30,7 @@ export default function Preview() {
       <ScrollVideoComponent />
       <Location />
       <AccountInfomation />
+      <QandA />
       <Footer />
     </div>
   );
