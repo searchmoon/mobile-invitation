@@ -10,7 +10,7 @@ export default function MainBanner2() {
         {/* 메인 이미지 */}
         <div className="h-full w-full overflow-hidden">
           <img
-            src="/assets/images/gallery/JECH_37_main2.jpg"
+            src="/assets/images/gallery/main2.jpg"
             alt="cover_image"
             onLoad={() => setImageLoaded(true)} // 이미지가 완전히 load 된 후 실행됨
             className={`object-cover w-full h-full transition-all duration-1000 ${

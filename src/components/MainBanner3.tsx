@@ -29,7 +29,7 @@ export default function MainBanner3() {
         <main className="flex-grow flex items-center justify-center px-8 min-h-0">
           <div className="relative max-w-full max-h-full aspect-[2/3] overflow-hidden rounded-full">
             <img
-              src="/assets/images/gallery/JECH_10_main.jpg"
+              src="/assets/images/gallery/JECH_04_main.jpg"
               alt="cover_image"
               onLoad={() => setImageLoaded(true)}
               className={`w-full h-full object-cover transition-all duration-1000 ${

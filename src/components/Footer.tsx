@@ -42,7 +42,7 @@ function Footer() {
         content: {
           title: "성찬훈 하뚜 문정은 결혼합니다",
           description: "10월 25일 오후 13:20분 웨딩시티 신도림 아모르홀",
-          imageUrl: `${window.location.origin}${thumbnailImg}`,
+          imageUrl: "https://mobile-invitation-zeta.vercel.app/assets/JECH_42-7GtNyFpY.jpg",
           link: {
             mobileWebUrl: window.location.href,
             webUrl: window.location.href,
@@ -71,6 +71,28 @@ function Footer() {
 
   return (
     <div>
+      <div className="relative">
+        <img
+          src="/assets/images/gallery/cut_JECH_35.jpg"
+          className="w-full h-auto object-cover"
+          style={{
+            maskImage: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,1) 50%)",
+            WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,1) 100%)",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/50"></div>
+        <div className="absolute inset-0 flex flex-col justify-between pt-4 pb-8 px-8">
+          <div className="flex-1 flex flex-col items-center">
+            <div className="text-center">
+              <p className="text-gray text-[16px]">저희 두 사람의 시작을 진심으로 축복해 주시는</p>
+              <p className="text-gray text-[16px]">모든 분들께 머리숙여 깊은 감사드립니다.</p>
+              <p className="text-gray text-[16px]">행복하게 잘 살겠습니다.</p>
+            </div>
+          </div>
+          {/* <p className="text-white text-start font-medium text-sm">신랑 성찬훈 신부 문정은</p> */}
+        </div>
+      </div>
+
       <div className="flex justify-center gap-8 py-6 bg-gray-500/10">
         <div className="flex flex-col items-center gap-2">
           <Button

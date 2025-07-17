@@ -37,7 +37,7 @@ export default function MainBanner() {
               className={`object-cover w-full h-full filter brightness-100 transition-opacity duration-500 ${
                 imageLoaded ? "opacity-100" : "opacity-0"
               }`}
-              src="/assets/images/gallery/JECH_10_main.jpg"
+              src="/assets/images/gallery/JECH_04_main.jpg"
               onLoad={() => setImageLoaded(true)}
             />
             {/* 투명 오버레이 */}
