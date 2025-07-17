@@ -38,7 +38,7 @@ export default function SplashScreen({ fadeOut = false }: SplashScreenProps) {
         className="flex flex-col justify-center items-center w-full max-w-[460px] h-full"
         style={{
           // backgroundImage: "url('/assets/images/background/oreo-texture.jpg')",
-          backgroundImage: "url('/assets/images/background/paper-texture.jpg')",
+          backgroundImage: "url('/assets/images/background/paper-texture2.jpg')",
           backgroundSize: "100% auto",
         }}
       >
@@ -72,7 +72,7 @@ export default function SplashScreen({ fadeOut = false }: SplashScreenProps) {
             className={`
               relative transition-all duration-2000
               ${motion ? "-bottom-1 -right-7 opacity-100" : "bottom-[23px] right-[18px] opacity-0"}
-            `}
+              `}
           >
             <div className="relative flex flex-col items-center mt-14">
               <div className="absolute -bottom-6 -right-6 flex justify-center items-center w-15 h-15">

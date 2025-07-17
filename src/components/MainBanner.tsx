@@ -17,11 +17,10 @@ export default function MainBanner() {
       <div className="relative w-full h-screen max-h-[900px] flex flex-col justify-between transition-all duration-700">
         {/* 상단 텍스트 */}
         <div className="px-4 xs400:px-6">
-          <h1 className="font-leagueScript tracking-[3px] font-extrabold text-[48px] w-full break-all text-center text-lightgray transition-all duration-100 ease-out whitespace-normal border-b-1 border-t-1 border-gray-300 mt-[10vh] mb-[7vh]">
+          <h1 className="font-leagueScript pt-2 tracking-[4px] font-extrabold text-[48px] w-full break-all text-center text-lightgray transition-all duration-100 ease-out whitespace-normal border-b-1 border-t-1 border-gray-300 mt-[10vh] mb-[7vh]">
             {mainTitle[0].title}
           </h1>
         </div>
-
         {/* 이미지 섹션 */}
         <div className="h-full max-h-[640px] rounded-t-full mx-5 xs400:mx-6 overflow-hidden">
           {/* 파티클 효과 영역 */}

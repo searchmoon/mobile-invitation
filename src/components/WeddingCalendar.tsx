@@ -69,10 +69,10 @@ export default function WeddingCalendar() {
 
           <div className="pt-8">
             <p className="flex items-baseline justify-center text-sm leading-snug text-gray-700">
-              정순
+              찬훈
               <Heart className="mx-2 w-3 h-3 fill-current" />
-              찬돌 결혼식이
-              <span className="mx-1 text-gray-500 font-medium text-lg">{timeLeft.days}일</span>
+              정은 결혼식이
+              <span className="mx-1 text-[#b19487] font-medium text-lg">{timeLeft.days}일</span>
               남았습니다
             </p>
           </div>

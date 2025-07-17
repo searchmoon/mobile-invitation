@@ -8,16 +8,16 @@ export default function MainBanner3() {
     <MotionDiv initial={{ y: 0 }}>
       <section className="relative w-full h-screen max-h-[900px] flex flex-col transition-all duration-700">
         {/* 상단 이름 */}
-        <header className="px-8 pt-12 pb-2 z-10">
+        <header className="px-8 pt-8 pb-2 z-10">
           <div className="flex justify-between items-center">
             <h1
-              className="text-2xl font-light text-gray-800 tracking-wide"
+              className="text-[22px] font-light text-gray-800 tracking-wide"
               style={{ fontFamily: "serif" }}
             >
               ChanHun
             </h1>
             <h1
-              className="text-2xl font-light text-gray-800 tracking-wide"
+              className="text-[22px] font-light text-gray-800 tracking-wide"
               style={{ fontFamily: "serif" }}
             >
               JeongEun

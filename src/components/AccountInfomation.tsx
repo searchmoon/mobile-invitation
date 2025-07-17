@@ -2,46 +2,40 @@ import { Flower2 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 
 import MotionDiv from "./MotionDiv";
-import PersonalInfo from "./accountInfo/PersonalInfo";
+import { AccountCard } from "./accountInfo/AccountCard";
 
 export default function AccountInfomation() {
   const groomAccount = [
     {
       name: "덩단훈",
-      bank: "국민은행",
-      accountNumber: "012220-1111-1111",
+      accountNumber: "국민 012220-1111-1111",
       phoneNumber: "010-1111-1111",
     },
     {
       name: "덩단훈 아버지",
-      bank: "국민은행",
-      accountNumber: "02210-2222-1111",
+      accountNumber: "토스뱅크 02210-2222-1111",
       phoneNumber: "010-2222-1111",
     },
     {
       name: "덩단훈 어머니",
-      bank: "국민은행",
-      accountNumber: "010222-3333-1111",
+      accountNumber: "국민 010222-3333-1111",
       phoneNumber: "010-3333-1111",
     },
   ];
   const brideAccount = [
     {
       name: "문덩흔",
-      bank: "국민은행",
-      accountNumber: "032132-4444-1111",
+      accountNumber: "토스뱅크 032132-4444-1111",
       phoneNumber: "010-4444-1111",
     },
     {
       name: "문덩흔 아버지 (문연기)",
-      bank: "국민은행",
-      accountNumber: "023123-5555-1111",
+      accountNumber: "우리 023123-5555-1111",
       phoneNumber: "010-5555-1111",
     },
     {
       name: "문덩흔 어머니 (신기루)",
-      bank: "국민은행",
-      accountNumber: "0123123-6666-1111",
+      accountNumber: "신한 0123123-6666-1111",
       phoneNumber: "010-6666-1111",
     },
   ];
@@ -62,16 +56,19 @@ export default function AccountInfomation() {
       <div className="mt-4 rounded-lg">
         <Accordion type="single" collapsible className="w-full">
           <MotionDiv>
-            <AccordionItem value="groom" className="border-none rounded-lg shadow-md bg-theme mb-3">
+            <AccordionItem
+              value="groom"
+              className="border-none rounded-lg shadow-md bg-white/30 mb-3"
+            >
               <AccordionTrigger className="bg-white border-none rounded-lg p-4 text-sm">
                 <div className="flex gap-1 my-auto">
                   <Flower2 className="text-blue-200 w-5 h-5" />
                   <p>신랑측</p>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="p-5">
+              <AccordionContent className="px-4">
                 {groomAccount.map((item, index) => (
-                  <PersonalInfo
+                  <AccountCard
                     key={item.name}
                     items={item}
                     isLast={index === groomAccount.length - 1}
@@ -81,17 +78,20 @@ export default function AccountInfomation() {
             </AccordionItem>
           </MotionDiv>
           <MotionDiv>
-            <AccordionItem value="bride" className="border-none rounded-lg shadow-md bg-theme mb-3">
+            <AccordionItem
+              value="bride"
+              className="border-none rounded-lg shadow-md bg-white/30 mb-3"
+            >
               <AccordionTrigger className="bg-white border-none rounded-lg p-4 text-sm">
                 <div className="flex gap-1 my-auto">
                   <Flower2 className="text-red-200 w-5 h-5" />
                   <p>신부측</p>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="p-5">
+              <AccordionContent className="px-4">
                 {brideAccount.map((item, index) => (
-                  <PersonalInfo
-                    key={item.accountNumber}
+                  <AccountCard
+                    key={item.name}
                     items={item}
                     isLast={index === brideAccount.length - 1}
                   />

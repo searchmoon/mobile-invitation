@@ -11,19 +11,18 @@ function App() {
     // 1.5초 후 페이드아웃 시작
     const timer1 = setTimeout(() => setFadeOut(true), 3000);
     // 3초 후 SplashScreen 제거
-    const timer2 = setTimeout(() => setShowSplash(false), 4500);
+    const timer2 = setTimeout(() => setShowSplash(false), 4000);
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
   }, []);
-
   return (
     <div className="flex flex-col items-center justify-center min-h-svh">
       <div
         className="bg-repeat-y bg-top min-h-screen"
         style={{
-          backgroundImage: "url('/assets/images/background/paper-texture6.jpg')",
+          backgroundImage: "url('/assets/images/background/paper-texture.jpg')",
           backgroundSize: "100% auto",
         }}
       >

@@ -8,10 +8,18 @@ interface ThemeOption {
   name: ThemeColor;
   color: string;
 }
+// 이 컴포넌트의 부모 컴포넌트에서
+// export type ThemeColor = "white" | "slate" | "amber" | "rose" | "indigo" | "teal" | "mood";
+
+// const [themeColor, setThemeColor] = useState<ThemeColor>("white");
+
+// const handlePickColor = (name: ThemeColor) => {
+//     setThemeColor(name);
+//   };
 
 function PickTheme({ handlePickColor }: PickThemeProps) {
   const themeColors: ThemeOption[] = [
-    { name: "white", color: "bg-white" },
+    { name: "white", color: "bg-white-200" },
     { name: "slate", color: "bg-slate-200" },
     { name: "amber", color: "bg-amber-200" },
     { name: "rose", color: "bg-rose-200" },

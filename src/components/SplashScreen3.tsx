@@ -17,7 +17,7 @@ export default function SplashScreen({ fadeOut = false }: SplashScreenProps) {
       <div
         className="flex flex-col justify-center items-center w-full max-w-[460px] h-full bg-gray-100"
         style={{
-          backgroundImage: "url('/assets/images/background/paper-texture.jpg')",
+          backgroundImage: "url('/assets/images/background/paper-texture2.jpg')",
           backgroundSize: "100% auto",
         }}
       >
