@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import GalleryGrid from "@/components/GalleryGrid";
 import MainBanner from "@/components/MainBanner";
 import MainBanner2 from "@/components/MainBanner2";
