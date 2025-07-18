@@ -1,11 +1,41 @@
-import { Flower2 } from "lucide-react";
+import { Gift } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
-
 import MotionDiv from "./MotionDiv";
 import { AccountCard } from "./accountInfo/AccountCard";
 
+export interface InfoType {
+  name: string;
+  accountNumber: string;
+  phoneNumber: string;
+}
+interface ItemsProp {
+  id: string;
+  title: string;
+  iconColorClass: string;
+  info: InfoType[];
+}
+
+function AccountAccordion({ items }: { items: ItemsProp }) {
+  const { id, title, iconColorClass, info } = items;
+  return (
+    <AccordionItem value={id} className="border-none rounded-xl shadow-sm mb-3 ">
+      <AccordionTrigger className="bg-white/80 border-none rounded-xl p-3 text-sm hover:bg-gray-100">
+        <div className="flex gap-2 my-auto">
+          <Gift className={`w-5 h-5 ${iconColorClass}`} />
+          <p>{title}</p>
+        </div>
+      </AccordionTrigger>
+      <AccordionContent className="px-4 bg-white/30">
+        {info.map((item: InfoType, index: number) => (
+          <AccountCard key={item.name} items={item} isLast={index === info.length - 1} />
+        ))}
+      </AccordionContent>
+    </AccordionItem>
+  );
+}
+
 export default function AccountInfomation() {
-  const groomAccount = [
+  const groomInfo = [
     {
       name: "덩단훈",
       accountNumber: "국민 012220-1111-1111",
@@ -22,7 +52,8 @@ export default function AccountInfomation() {
       phoneNumber: "010-3333-1111",
     },
   ];
-  const brideAccount = [
+
+  const brideInfo = [
     {
       name: "문덩흔",
       accountNumber: "토스뱅크 032132-4444-1111",
@@ -37,6 +68,21 @@ export default function AccountInfomation() {
       name: "문덩흔 어머니 (신기루)",
       accountNumber: "신한 0123123-6666-1111",
       phoneNumber: "010-6666-1111",
+    },
+  ];
+
+  const accountsGroup = [
+    {
+      id: "groom",
+      title: "신랑측 계좌",
+      iconColorClass: "text-blue-200",
+      info: groomInfo,
+    },
+    {
+      id: "bride",
+      title: "신부측 계좌",
+      iconColorClass: "text-red-200",
+      info: brideInfo,
     },
   ];
 
@@ -55,50 +101,9 @@ export default function AccountInfomation() {
       </MotionDiv>
       <div className="mt-4 rounded-lg">
         <Accordion type="single" collapsible className="w-full">
-          <MotionDiv>
-            <AccordionItem
-              value="groom"
-              className="border-none rounded-lg shadow-md bg-white/30 mb-3"
-            >
-              <AccordionTrigger className="bg-white border-none rounded-lg p-4 text-sm">
-                <div className="flex gap-1 my-auto">
-                  <Flower2 className="text-blue-200 w-5 h-5" />
-                  <p>신랑측</p>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-4">
-                {groomAccount.map((item, index) => (
-                  <AccountCard
-                    key={item.name}
-                    items={item}
-                    isLast={index === groomAccount.length - 1}
-                  />
-                ))}
-              </AccordionContent>
-            </AccordionItem>
-          </MotionDiv>
-          <MotionDiv>
-            <AccordionItem
-              value="bride"
-              className="border-none rounded-lg shadow-md bg-white/30 mb-3"
-            >
-              <AccordionTrigger className="bg-white border-none rounded-lg p-4 text-sm">
-                <div className="flex gap-1 my-auto">
-                  <Flower2 className="text-red-200 w-5 h-5" />
-                  <p>신부측</p>
-                </div>
-              </AccordionTrigger>
-              <AccordionContent className="px-4">
-                {brideAccount.map((item, index) => (
-                  <AccountCard
-                    key={item.name}
-                    items={item}
-                    isLast={index === brideAccount.length - 1}
-                  />
-                ))}
-              </AccordionContent>
-            </AccordionItem>
-          </MotionDiv>
+          {accountsGroup.map((items) => (
+            <AccountAccordion key={items.id} items={items} />
+          ))}
         </Accordion>
       </div>
     </div>

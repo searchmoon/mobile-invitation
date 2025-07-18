@@ -2,13 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Phone, Copy, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { useCallback } from "react";
+import type { InfoType } from "../AccountInfomation";
 
 interface AccountCardProps {
-  items: {
-    name: string;
-    accountNumber: string;
-    phoneNumber: string;
-  };
+  items: InfoType;
   isLast?: boolean;
 }
 
@@ -53,9 +50,9 @@ export function AccountCard({ items, isLast = false }: AccountCardProps) {
 
   return (
     <div className={`pt-3 ${!isLast && "pb-3 border-b-1 border-gray-200"}`}>
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between mb-1">
         <div className="flex flex-col gap-[2px]">
-          <p className="text-[16px] text-gray-700">{name}</p>
+          <p className="text-sm font-semibold text-gray-700">{name}</p>
           <p
             className="text-sm text-gray-700 cursor-pointer hover:text-gray-900 transition-colors"
             onClick={handleCopy}
@@ -82,7 +79,7 @@ export function AccountCard({ items, isLast = false }: AccountCardProps) {
           className="w-full h-9 text-xs text-gray-600 border-gray-300 bg-white/80 hover:bg-gray-50"
           onClick={handleCopy}
         >
-          <Copy className="h-4 w-4 mr-2" />
+          <Copy className="mr-1" />
           계좌 복사하기
         </Button>
       </div>

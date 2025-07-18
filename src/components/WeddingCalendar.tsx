@@ -48,7 +48,7 @@ export default function WeddingCalendar() {
           {/* 날짜 정보 */}
           <div className="flex flex-col text-center gap-y-2 mb-8 text-gray-900 opacity-90">
             <p className="text-lg">2025년 10월 25일 토요일 | 오후 1시 20분</p>
-            <p className="font-light text-sm opacity">웨딩시티 신도림</p>
+            <p className="font-medium text-[16px]">웨딩시티 신도림 8층 아모르홀</p>
           </div>
         </MotionDiv>
         <MotionDiv>
