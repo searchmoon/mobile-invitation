@@ -5,7 +5,6 @@ import MotionDiv from "./MotionDiv";
 
 function Footer() {
   const deploymentLink = "https://mobile-invitation-zeta.vercel.app";
-  const naverLocationName = "테크노마트 웨딩시티";
 
   const handleCopy = () => {
     // const link = window.location.href;
