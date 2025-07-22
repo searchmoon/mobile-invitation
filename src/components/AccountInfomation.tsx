@@ -100,13 +100,15 @@ export default function AccountInfomation() {
           <p>진심으로 감사드립니다.</p>
         </div>
       </MotionDiv>
-      <div className="flex flex-col items-center mt-4">
-        <Accordion type="single" collapsible className="w-full max-w-80 ">
-          {accountsGroup.map((items) => (
-            <AccountAccordion key={items.id} items={items} />
-          ))}
-        </Accordion>
-      </div>
+      <MotionDiv>
+        <div className="flex flex-col items-center mt-4">
+          <Accordion type="single" collapsible className="w-full max-w-80 ">
+            {accountsGroup.map((items) => (
+              <AccountAccordion key={items.id} items={items} />
+            ))}
+          </Accordion>
+        </div>
+      </MotionDiv>
     </div>
   );
 }

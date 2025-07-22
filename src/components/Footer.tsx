@@ -1,6 +1,7 @@
 import { Share, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import MotionDiv from "./MotionDiv";
 
 function Footer() {
   const deploymentLink = "https://mobile-invitation-zeta.vercel.app";
@@ -56,8 +57,8 @@ function Footer() {
           {
             title: "위치 보기",
             link: {
-              mobileWebUrl: "https://map.kakao.com/link/map/326511102",
-              webUrl: "https://map.kakao.com/link/map/326511102",
+              mobileWebUrl: `https://map.kakao.com/link/search/${encodeURIComponent("웨딩시티 신도림")}`,
+              webUrl: `https://map.kakao.com/link/search/${encodeURIComponent("웨딩시티 신도림")}`,
             },
           },
         ],
@@ -73,59 +74,62 @@ function Footer() {
 
   return (
     <div>
-      <div className="relative">
+      <MotionDiv>
         <div className="relative">
-          <img
-            src="/assets/images/gallery/cut_JECH_35.jpg"
-            className="w-full h-auto object-cover"
-            style={{
-              maskImage:
-                "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.9) 65%, rgba(0,0,0,1) 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.9) 65%, rgba(0,0,0,1) 100%)",
-            }}
-          />
+          <div className="relative">
+            <img
+              src="/assets/images/gallery/cut_JECH_35.jpg"
+              className="w-full h-auto object-cover"
+              style={{
+                maskImage:
+                  "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.9) 65%, rgba(0,0,0,1) 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0.9) 65%, rgba(0,0,0,1) 100%)",
+              }}
+            />
 
-          <div className="absolute inset-0"></div>
-        </div>
-        <div
-          className="absolute top-0 right-0 left-0 flex flex-col gap-[2px] justify-center items-center pt-5 px-4 pointer-events-none font-nanumPen font-medium text-[20px] leading-6 text-700gray tracking-[2px]"
-          style={strongShadow}
-        >
-          <p>저희 두 사람의 시작을 진심으로 축복해 주시는</p>
-          <p>모든 분들께 깊은 감사드립니다.</p>
-          <p>서로 아끼며, 행복하게 잘 살겠습니다.</p>
-          <p className="text-[18px] pt-1">신랑 찬훈 · 신부 정은</p>
-        </div>
-      </div>
-
-      <div className="flex justify-center gap-8 py-6 ">
-        <div className="flex flex-col items-center gap-2">
-          <Button
-            variant="outline"
-            className="w-12 h-12 rounded-full p-0 bg-white border-gray-200 hover:bg-gray-50"
-            onClick={handleCopy}
-            aria-label="링크 복사"
+            <div className="absolute inset-0"></div>
+          </div>
+          <div
+            className="absolute top-0 right-0 left-0 flex flex-col gap-[2px] justify-center items-center pt-5 px-4 pointer-events-none font-nanumPen font-medium text-[20px] leading-6 text-700gray tracking-[2px]"
+            style={strongShadow}
           >
-            <Share className="h-5 w-5 text-500gray" />
-          </Button>
-          <span className="text-xs">링크 복사</span>
+            <p>저희 두 사람의 시작을 진심으로 축복해 주시는</p>
+            <p>모든 분들께 깊은 감사드립니다.</p>
+            <p>서로 아끼며, 행복하게 잘 살겠습니다.</p>
+            <p className="text-[18px] pt-1">신랑 찬훈 · 신부 정은</p>
+          </div>
         </div>
-        <div className="flex flex-col items-center gap-2">
-          <Button
-            variant="outline"
-            className="w-12 h-12 rounded-full p-0 bg-white border-gray-200"
-            onClick={handleShareKakao}
-            aria-label="카카오톡 공유"
-          >
-            <MessageCircle className="h-5 w-5 text-500gray" />
-          </Button>
-          <span className="text-xs">카카오톡 공유</span>
+      </MotionDiv>
+      <MotionDiv>
+        <div className="flex justify-center gap-8 py-6 ">
+          <div className="flex flex-col items-center gap-2">
+            <Button
+              variant="outline"
+              className="w-12 h-12 rounded-full p-0 bg-white border-gray-200 hover:bg-gray-50"
+              onClick={handleCopy}
+              aria-label="링크 복사"
+            >
+              <Share className="h-5 w-5 text-500gray" />
+            </Button>
+            <span className="text-xs">링크 복사</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <Button
+              variant="outline"
+              className="w-12 h-12 rounded-full p-0 bg-white border-gray-200"
+              onClick={handleShareKakao}
+              aria-label="카카오톡 공유"
+            >
+              <MessageCircle className="h-5 w-5 text-500gray" />
+            </Button>
+            <span className="text-xs">카카오톡 공유</span>
+          </div>
         </div>
-      </div>
-      <div className="flex items-center justify-center py-4 bg-[#ded5d170]">
-        <p className="text-xs text-500gray">ⓒ RUMI Corp. All Rights Reserved.</p>
-      </div>
+        <div className="flex items-center justify-center py-4 bg-[#ded5d170]">
+          <p className="text-xs text-500gray">ⓒ RUMI Corp. All Rights Reserved.</p>
+        </div>
+      </MotionDiv>
     </div>
   );
 }

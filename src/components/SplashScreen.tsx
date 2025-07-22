@@ -36,9 +36,8 @@ export default function SplashScreen({ fadeOut = false }: SplashScreenProps) {
         `}
     >
       <div
-        className="flex flex-col justify-center items-center w-full max-w-[460px] h-full"
+        className="flex flex-col justify-center items-center w-full max-w-[460px] h-full bg-[#f5f5f4]"
         style={{
-          // backgroundImage: "url('/assets/images/background/oreo-texture.jpg')",
           backgroundImage: "url('/assets/images/background/paper-texture2.jpg')",
           backgroundSize: "100% auto",
         }}

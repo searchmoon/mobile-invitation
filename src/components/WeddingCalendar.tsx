@@ -49,14 +49,16 @@ export default function WeddingCalendar() {
           </div>
         </MotionDiv>
         {/* <MonthCalendar /> */}
-        <CountdownMinimal
-          timeLeft={{
-            days: timeLeft.days,
-            hours: timeLeft.hours,
-            minutes: timeLeft.minutes,
-            seconds: timeLeft.seconds,
-          }}
-        />
+        <MotionDiv>
+          <CountdownMinimal
+            timeLeft={{
+              days: timeLeft.days,
+              hours: timeLeft.hours,
+              minutes: timeLeft.minutes,
+              seconds: timeLeft.seconds,
+            }}
+          />
+        </MotionDiv>
         <MotionDiv>
           <div className="pt-8">
             <p className="flex items-center justify-center text-ms leading-snug">

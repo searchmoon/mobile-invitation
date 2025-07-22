@@ -21,7 +21,7 @@ export default function MotionDiv({
 }: MotionDivProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20, ...(initial as object) }} // 초기상태 정의
+      initial={{ opacity: 0, y: 30, ...(initial as object) }} // 초기상태 정의
       whileInView={{ opacity: 1, y: 0, ...(whileInView as object) }} // y축 위치 제자리찾게 하기
       transition={{
         ease: "easeInOut",
