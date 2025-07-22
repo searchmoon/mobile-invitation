@@ -35,13 +35,7 @@ export default function SplashScreen({ fadeOut = false }: SplashScreenProps) {
         ${fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"}
         `}
     >
-      <div
-        className="flex flex-col justify-center items-center w-full max-w-[460px] h-full bg-[#f5f5f4]"
-        style={{
-          backgroundImage: "url('/assets/images/background/paper-texture2.jpg')",
-          backgroundSize: "100% auto",
-        }}
-      >
+      <div className="flex flex-col justify-center items-center w-full max-w-[460px] h-full bg-[#f5f5f4] splash-background preload-images::before">
         <div className="flex items-center justify-between gap-1 mt-[115px]">
           <div
             className={`

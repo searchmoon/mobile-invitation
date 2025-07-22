@@ -188,3 +188,19 @@
     font-family: var(--font-serif);
   } */
 }
+
+.splash-background {
+  background-image: url("/assets/images/background/paper-texture2.jpg");
+  background-size: 100% auto;
+}
+
+/* 스플래시 배경 이미지 프리로딩 */
+.preload-images::before {
+  content: "";
+  position: absolute;
+  left: -9999px;
+  background:
+    url("/assets/images/background/paper-texture2.jpg") no-repeat -9999px -9999px,
+    url("/assets/images/boy.jpeg") no-repeat -9999px -9999px,
+    url("/assets/images/girl.jpeg") no-repeat -9999px -9999px;
+}

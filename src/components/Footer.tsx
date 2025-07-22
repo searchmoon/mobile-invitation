@@ -58,8 +58,8 @@ function Footer() {
           {
             title: "위치 보기",
             link: {
-              mobileWebUrl: `https://map.naver.com/v5/search/${encodeURIComponent(naverLocationName)}`,
-              webUrl: `https://map.naver.com/v5/search/${encodeURIComponent(naverLocationName)}`,
+              mobileWebUrl: "https://map.kakao.com/link/map/326511102",
+              webUrl: "https://map.kakao.com/link/map/326511102",
             },
           },
         ],
