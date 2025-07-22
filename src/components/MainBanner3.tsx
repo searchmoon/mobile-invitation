@@ -42,7 +42,7 @@ export default function MainBanner3() {
           </div>
 
           <div>
-            <h2 className="block text-lg font-light tracking-wide">October 25, 2025</h2>
+            <h2 className="block text-lg font-light tracking-wide mb-1">October 25, 2025</h2>
             <span className="block text-sm text-600gray font-light">Saturday, 13:20 pm</span>
           </div>
         </footer>

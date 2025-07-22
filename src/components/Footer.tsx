@@ -34,11 +34,12 @@ function Footer() {
   const handleShareKakao = () => {
     if (window.Kakao) {
       window.Kakao.Share.sendDefault({
-        objectType: "feed",
+        objectType: "location",
+        address: "서울 구로구 새말로 97",
         content: {
           title: "성찬훈 ♥️ 문정은 결혼합니다",
           description: "10월 25일 오후 13:20분 웨딩시티 신도림 8층 아모르홀",
-          imageUrl: `${deploymentLink}/assets/JECH_42-7GtNyFpY.jpg`,
+          imageUrl: `${deploymentLink}/assets/JECH_40-7GtNyFpY.jpg`,
           link: {
             mobileWebUrl: deploymentLink,
             webUrl: deploymentLink,
