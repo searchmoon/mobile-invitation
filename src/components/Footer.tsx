@@ -5,6 +5,7 @@ import MotionDiv from "./MotionDiv";
 
 function Footer() {
   const deploymentLink = "https://mobile-invitation-zeta.vercel.app";
+  const naverLocationName = "테크노마트 웨딩시티";
 
   const handleCopy = () => {
     // const link = window.location.href;
@@ -57,8 +58,8 @@ function Footer() {
           {
             title: "위치 보기",
             link: {
-              mobileWebUrl: `https://map.kakao.com/link/search/${encodeURIComponent("웨딩시티 신도림")}`,
-              webUrl: `https://map.kakao.com/link/search/${encodeURIComponent("웨딩시티 신도림")}`,
+              mobileWebUrl: `https://map.naver.com/v5/search/${encodeURIComponent(naverLocationName)}`,
+              webUrl: `https://map.naver.com/v5/search/${encodeURIComponent(naverLocationName)}`,
             },
           },
         ],
