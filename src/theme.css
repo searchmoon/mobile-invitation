@@ -11,12 +11,56 @@
   --color-light-bg: #ffffff9d; /* white-50 */
   --color-accent: #64748b; /* white-500 */
   --color-border: #e2e8f0; /* white-300 */
-  --color-text: #928377;
+
+  /* stone 계열 */
+  --color-gray-50: #fafaf9;
+  --color-gray-100: #f5f5f4;
+  --color-gray-200: #e7e5e4;
+  --color-gray-300: #d6d3d1;
+  --color-gray-400: #a8a29e;
+  --color-gray-500: #78716c;
+  --color-gray-600: #57534e;
+  --color-gray-700: #44403c;
+  --color-gray-800: #292524;
+  --color-gray-900: #1c1917;
+  --color-gray-950: #0c0a09;
+
+  --color-text-white: #fff;
+  --color-text-whiteGray: #fafafa;
+  --color-point: #928377;
+  --color-red: #d56767;
+
+  /* gray 계열 */
+  /* --color-gray-50: #fafafa; */
+  /* --color-gray-100: #f5f5f5; */
+  /* --color-gray-200: #e5e5e5; */
+  /* --color-gray-300: #d4d4d4; */
+  /* --color-gray-400: #a3a3a3; */
+  /* --color-gray-500: #737373; */
+  /* --color-gray-600: #525252; */
+  /* --color-gray-700: #404040; */
+  /* --color-gray-800: #262626; */
+  /* --color-gray-900: #171717; */
+  /* --color-gray-950: #0a0a0a; */
+
+  /* slate 계열 */
+  /* --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #64748b;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1e293b;
+  --color-gray-900: #0f172a;
+  --color-gray-950: #020617; */
 }
 
 /* 테마: White */
 .theme-white {
-  --color-bg: #f5f5f59d; /* white-200 */
+  --color-text: #333333;
+  --color-bg: #d5cac73c; /* white-200 */
   --color-light-bg: #ffffff55; /* white-50 */
   --color-accent: #64748b; /* white-500 */
   --color-border: #e2e8f0; /* white-300 */
@@ -72,24 +116,33 @@
 }
 
 /* 폰트 컬러 */
-.text-black {
-  color: var(--color-black);
+.text-300gray {
+  color: var(--color-gray-300);
 }
-
-.text-gray {
-  color: var(--color-gray);
+.text-400gray {
+  color: var(--color-gray-400);
 }
-
-.text-lightgray {
-  color: var(--color-lightgray);
+.text-500gray {
+  color: var(--color-gray-500);
+}
+.text-600gray {
+  color: var(--color-gray-600);
+}
+.text-700gray {
+  color: var(--color-gray-700);
+}
+.text-800gray {
+  color: var(--color-gray-800);
+}
+.text-900gray {
+  color: var(--color-gray-900);
 }
 
 .text-white {
   color: var(--color-white);
 }
-
-.text-default {
-  color: var(--color-text);
+.text-point {
+  color: var(--color-point);
 }
 
 /* 배경 컬러 */
@@ -99,4 +152,39 @@
 
 .bg-theme-light {
   background-color: var(--color-light-bg);
+}
+
+@layer base {
+  :root {
+    /* Font Families */
+    /* 사용할 웹 폰트 이름을 여기에 지정해주세요. 예: "Pretendard" */
+    /* --font-primary: sans-serif; */
+    /* --font-serif: serif; */
+    /* --font-script: cursive; */
+
+    /* Text Colors */
+    /* 어두운 계열 색상을 이곳에서 관리합니다. */
+    --color-text-primary: #262626; /* 기본 텍스트 (ex. formerly text-gray-800) */
+    --color-text-secondary: #525252; /* 부가 텍스트 (ex. formerly text-gray-600) */
+    --color-text-tertiary: #737373; /* 연한 텍스트 (ex. formerly text-gray-500) */
+    --color-text-accent: #b19487; /* 포인트 텍스트 */
+
+    /* Background Colors */
+    --color-bg-light: #f8f5f2;
+    --color-bg-card: #ffffff;
+
+    /* Border/Separator Colors */
+    --color-border: #e5e7eb; /* ex. formerly gray-200 */
+  }
+
+  body {
+    font-family: var(--font-primary);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* .font-serif {
+    font-family: var(--font-serif);
+  } */
 }

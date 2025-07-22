@@ -9,13 +9,15 @@
 }
 
 body {
-  /* font-family: system-ui, sans-serif; */
+  font-family: nanumGothic, sans-serif;
   background-color: #fff;
-  color: #000;
+  color: var(--color-gray-800);
+  font-size: 16px;
 }
 
 @theme {
   --breakpoint-xs400: 400px;
+  --breakpoint-xs340: 340px;
   /* font-family */
   /* 외부 폰트 */
   --font-autery: "autery", sans-serif;
@@ -23,6 +25,13 @@ body {
   --font-loveScript: "loveScript", cursive;
   /* 구글 폰트  */
   --font-leagueScript: "League Script", cursive;
+  --font-spedialElite: "Special Elite", system-ui;
+  --font-gamja: "Gamja Flower", sans-serif;
+  --font-gaegu: "Gaegu", sans-serif; /* light, bold */
+  --font-comingSoon: "Coming Soon", cursive;
+  --font-hiMelody: "Hi Melody", sans-serif;
+  --font-nanumGothic: "Nanum Gothic", sans-serif;
+  --font-nanumPen: "Nanum Pen Script", cursive;
 }
 
 @theme inline {

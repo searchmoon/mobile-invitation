@@ -24,7 +24,7 @@ function GalleryImage({ image, index, onClick }: GalleryImageProps) {
         }`}
       />
       {!isLoaded && (
-        <div className="absolute w-full h-full inset-0 bg-gray-400/50 animate-pulse"></div>
+        <div className="absolute w-full h-full inset-0 bg-gray-400/30 animate-pulse"></div>
       )}
     </div>
   );

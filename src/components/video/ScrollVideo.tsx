@@ -44,6 +44,10 @@ const ScrollAnimatedVideo = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const strongShadow = {
+    textShadow: "3px 3px 3px rgba(50,50,50,0.9)",
+  };
+
   return (
     <div
       ref={boxRef}
@@ -64,9 +68,13 @@ const ScrollAnimatedVideo = () => {
       >
         <source src="/video/wedding-video.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 pointer-events-none">
-        <p className="text-white text-6xl font-serif">10/25</p>
-        <span className="text-white text-2xl font-serif">13:20pm</span>
+
+      <div
+        className="absolute inset-0 flex flex-col items-center justify-center bg-black/75 pointer-events-none font-comingSoon font-extrabold tracking-[4px]"
+        style={strongShadow}
+      >
+        <p className="text-white/90 text-6xl">10/25</p>
+        <span className="text-white text-2xl">13:20pm</span>
       </div>
     </div>
   );

@@ -1,36 +1,42 @@
 import { Bus, MapPin, ParkingCircle, Train } from "lucide-react";
 import { Separator } from "./ui/separator";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import MotionDiv from "./MotionDiv";
 import KakaoMap from "./location/KakaoMap";
+import MainTitle from "./MainTitle";
+import type { LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface SectionHeaderProps {
+  icon: LucideIcon;
+  title: string;
+  className?: string;
+}
+
+function SectionHeader({ icon: Icon, title, className }: SectionHeaderProps) {
+  return (
+    <div className={cn(`flex items-center`, className)}>
+      <Icon className="w-4 h-4 mr-2 text-point" />
+      <span className="font-semibold text-point">{title}</span>
+    </div>
+  );
+}
 
 function Location() {
   return (
     <div className="py-16">
+      <MainTitle title="LOCATION" />
       <MotionDiv>
-        <div className="text-center mb-10">
-          <p
-            className="text-4xl text-gray opacity-90 tracking-wider"
-            style={{
-              fontFamily: "serif",
-            }}
-          >
-            LOCATION
-          </p>
-        </div>
-      </MotionDiv>
-      <MotionDiv>
-        <div className="w-full py-4">
+        <div className="w-full">
           <KakaoMap />
         </div>
       </MotionDiv>
-
-      <div className="flex flex-col text-sm w-full px-4 xs400:px-6 leading-6 space-y-4 text-[#111111] opacity-90">
+      <div className="flex flex-col text-sm w-full px-4 xs400:px-6 leading-6 space-y-4">
         <MotionDiv>
           <div>
-            <div className="flex py-2 items-center">
-              <MapPin className="w-4 h-4 mr-2 text-default" />
-              <span className="font-semibold text-default">위치</span>
-            </div>
+            {/* <div className="flex pt-2 items-center"> */}
+            <SectionHeader icon={MapPin} title="위치" className="mt-4" />
+            {/* </div> */}
             <div className="py-4">
               <p>주소 : 서울특별시 구로구 새말로 97 신도림테크노마트</p>
               <p>네비게이션 : '웨딩시티 신도림' 검색</p>
@@ -38,12 +44,10 @@ function Location() {
             <Separator className="my-1 bg-gray-200" />
           </div>
         </MotionDiv>
+
         <MotionDiv>
           <div>
-            <div className="flex py-2 items-center">
-              <Train className="w-4 h-4 mr-2 text-default" />
-              <span className="font-semibold text-default">지하철</span>
-            </div>
+            <SectionHeader icon={Train} title="지하철" />
             <div className="py-4">
               <div className="flex items-center mb-2">
                 <div className="flex items-center justify-center bg-blue-600 text-white rounded-full w-4.5 h-4.5 mr-0.5">
@@ -55,41 +59,8 @@ function Location() {
                 <strong className="">신도림역 (1,2호선)</strong>
               </div>
               <p>
-                신도림역 3번 출구 → 테크노마트 판매동 지하 1층에서 엘레베이터 또는 에스컬레이터
-                이용해서 8층
-              </p>
-            </div>
-            <Separator className="my-1 bg-gray-200" />
-          </div>
-        </MotionDiv>
-        <MotionDiv>
-          <div>
-            <div className="flex py-2 items-center">
-              <Bus className="w-4 h-4 mr-2 text-default" />
-              <span className="font-semibold text-default">버스</span>
-            </div>
-            <div className="py-4 space-y-1">
-              <p>
-                <strong>신도림역 (17-102)정류장 하차</strong>
-              </p>
-              <p className="whitespace-pre-wrap leading-5.5 mb-5">
-                지하철 신도림역 3번출구 쪽 {"\n"}
-                지선 : 5619, 6411, 6511, 6611 {"\n"}
-                직행 : 5200 {"\n"}
-                마을 : 영등포09, 영등포12, 영등포13
-              </p>
-              <p>
-                <strong>신도림역 (17-001)정류장 하차</strong>
-              </p>
-              <p className="whitespace-pre-wrap leading-5.5">
-                지하철 신도림역 1번출구 쪽 {"\n"}
-                (하차 후 지하보도 이용, 지하철 3번출구 방면 으로 이동 후 테크노마트 판매동 지하 1층
-                통로 이용) {"\n"}
-                간선 : 160, 503, 600, 660,662 {"\n"}
-                지선 : 5615, 5714, 6512, 6515, 6516 6637, 6640A, 6713 {"\n"}
-                직행 : 301, 320 {"\n"}
-                일반 : 10, 11-1, 11-2, 83, 88, 530 {"\n"}
-                공항 : 6018
+                신도림역 3번 출구 → 테크노마트 판매동 지하 1층에서 엘레베이터 또는
+                에스컬레이터이용해서 8층
               </p>
             </div>
             <Separator className="my-1 bg-gray-200" />
@@ -98,10 +69,47 @@ function Location() {
 
         <MotionDiv>
           <div>
-            <div className="flex py-2 items-center">
-              <ParkingCircle className="w-4 h-4 mr-2 text-default" />
-              <span className="font-semibold text-default">주차</span>
+            <SectionHeader icon={Bus} title="버스" />
+            <div className="py-4">
+              <Accordion type="multiple" className="w-full">
+                <strong>신도림역 (17-102)정류장 하차</strong>
+                <p>지하철 신도림역 3번출구 쪽</p>
+                <AccordionItem value="bus-stop-1" className="border-none mb-4">
+                  <AccordionTrigger className="hover:no-underline p-0 text-left [&[data-state=open]>svg]:rotate-180 justify-start py-[2px] gap-2">
+                    버스노선 자세히 보기
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-3 pt-0 leading-5.5">
+                    <p>지선 : 5619, 6411, 6511, 6611</p>
+                    <p>직행 : 5200</p>
+                    <p>마을 : 영등포09, 영등포12, 영등포13</p>
+                  </AccordionContent>
+                </AccordionItem>
+                <strong>신도림역 (17-001)정류장 하차</strong>
+                <p>
+                  지하철 신도림역 1번출구 쪽 (하차 후 지하보도 이용, 지하철 3번출구 방면 으로 이동
+                  후 테크노마트 판매동 지하 1층통로 이용)
+                </p>
+                <AccordionItem value="bus-stop-2" className="border-none">
+                  <AccordionTrigger className="hover:no-underline p-0 text-left [&[data-state=open]>svg]:rotate-180 justify-start py-[2px] gap-2">
+                    버스노선 자세히 보기
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-3 pt-0 leading-5.5">
+                    <p>간선 : 160, 503, 600, 660,662</p>
+                    <p>지선 : 5615, 5714, 6512, 6515, 6516 6637, 6640A, 6713</p>
+                    <p>직행 : 301, 320</p>
+                    <p>일반 : 10, 11-1, 11-2, 83, 88, 530</p>
+                    <p>공항 : 6018</p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
             </div>
+            <Separator className="my-1 bg-gray-200" />
+          </div>
+        </MotionDiv>
+
+        <MotionDiv>
+          <div>
+            <SectionHeader icon={ParkingCircle} title="주차" />
             <div className="py-4">
               <p>테크노마트 지하주차장 이용(B3~B7)</p>
               <p>주차권으로 최대 3시간 무료주차 가능합니다.</p>

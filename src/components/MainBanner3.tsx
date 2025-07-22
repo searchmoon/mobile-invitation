@@ -6,20 +6,14 @@ export default function MainBanner3() {
 
   return (
     <MotionDiv initial={{ y: 0 }}>
-      <section className="relative w-full h-screen max-h-[900px] flex flex-col transition-all duration-700">
+      <section className="relative w-full h-screen max-h-[960px] flex flex-col transition-all duration-700">
         {/* 상단 이름 */}
-        <header className="px-8 pt-8 pb-2 z-10">
+        <header className="px-8 pt-8 pb-2">
           <div className="flex justify-between items-center">
-            <h1
-              className="text-[22px] font-light text-gray-800 tracking-wide"
-              style={{ fontFamily: "serif" }}
-            >
+            <h1 className="text-[22px] font-light tracking-wide" style={{ fontFamily: "serif" }}>
               ChanHun
             </h1>
-            <h1
-              className="text-[22px] font-light text-gray-800 tracking-wide"
-              style={{ fontFamily: "serif" }}
-            >
+            <h1 className="text-[22px] font-light tracking-wide" style={{ fontFamily: "serif" }}>
               JeongEun
             </h1>
           </div>
@@ -41,19 +35,15 @@ export default function MainBanner3() {
         </main>
 
         {/* 하단 정보 */}
-        <footer className="text-center pb-10 px-8 z-10">
+        <footer className="text-center pb-10 px-8">
           <div className="mb-4">
-            <p className="text-sm font-light text-gray-600 tracking-[0.2em] mb-3 mt-4">
-              WEDDING INVITATION
-            </p>
+            <p className="text-sm text-500gray tracking-[0.2em] mb-3 mt-4">WEDDING INVITATION</p>
             <div className="w-12 h-px bg-gray-300 mx-auto"></div>
           </div>
 
           <div>
-            <h2 className="block text-lg font-light text-gray-800 tracking-wide">
-              October 25, 2025
-            </h2>
-            <span className="block text-sm text-gray-600 font-light">Saturday, 13:20 pm</span>
+            <h2 className="block text-lg font-light tracking-wide">October 25, 2025</h2>
+            <span className="block text-sm text-600gray font-light">Saturday, 13:20 pm</span>
           </div>
         </footer>
       </section>

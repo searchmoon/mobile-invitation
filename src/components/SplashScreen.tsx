@@ -1,6 +1,7 @@
 import { useLayoutEffect, useState } from "react";
 import CircularText from "./CircularText";
 import MotionDiv from "./MotionDiv";
+import { Heart } from "lucide-react";
 
 interface SplashScreenProps {
   fadeOut?: boolean;
@@ -29,8 +30,8 @@ export default function SplashScreen({ fadeOut = false }: SplashScreenProps) {
     <div
       className={`
         fixed inset-0 flex items-center justify-center z-50
-        h-screen max-h-[900px]
-        transition-opacity duration-1000
+        h-screen max-h-[960px]
+        transition-opacity duration-1500
         ${fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"}
         `}
     >
@@ -50,7 +51,11 @@ export default function SplashScreen({ fadeOut = false }: SplashScreenProps) {
             `}
           >
             <div className="relative flex flex-col items-center mb-14">
-              <CircularText radius={90} className="tracking-[10px]" startOffset="0%">
+              <CircularText
+                radius={90}
+                className="tracking-[5px] font-gaegu text-xl xs340:text-2xl"
+                startOffset="0%"
+              >
                 CHAN HUN
               </CircularText>
               <div className="absolute -top-6 -left-6 flex justify-center items-center w-15 h-15">
@@ -63,7 +68,7 @@ export default function SplashScreen({ fadeOut = false }: SplashScreenProps) {
           </div>
 
           <span
-            className={`mx-3 text-gray-600 transition-all duration-3000 ${motion ? "opacity-100" : "opacity-0"}`}
+            className={`mx-3 font-gaegu text-xl xs340:text-2xl transition-all duration-3000 ${motion ? "opacity-100" : "opacity-0"}`}
           >
             &
           </span>
@@ -81,20 +86,29 @@ export default function SplashScreen({ fadeOut = false }: SplashScreenProps) {
                   className="w-15 h-15 rounded-lg overflow-hidden shadow-2xl object-cover"
                 />
               </div>
-              <CircularText radius={90} className="tracking-[10px]" startOffset="45%">
+              <CircularText
+                radius={90}
+                className="tracking-[4px] font-gaegu text-xl xs340:text-2xl"
+                startOffset="48%"
+              >
                 JEONG EUN
               </CircularText>
             </div>
           </div>
         </div>
         <MotionDiv initial={{ y: 0 }} transition={{ duration: 3 }}>
-          <div className="flex flex-col items-center">
-            <div className="w-[1px] h-16 bg-black mt-30 mb-6"></div>
-            <span>찬훈 & 정은</span>
+          <div className="flex flex-col items-center font-gamja tracking-widest text-lg xs340:text-xl">
+            <div className="w-[1px] h-14 bg-stone-600 mt-30 mb-6"></div>
+
+            <div className="flex items-center">
+              <span className="text-lg xs340:text-[22px]">찬훈</span>
+              <Heart className="mr-2 ml-1 fill-[#f8b9b9] text-white/70" />
+              <span className="text-lg xs340:text-[22px]">정은</span>
+            </div>
             <span>결혼합니다</span>
-            <div className="w-4 h-[1px] bg-black mt-3 mb-6"></div>
-            <span>2025.10.25 토요일 13:20</span>
-            <span>웨딩시티 신도림</span>
+            <div className="w-6 h-[1px] bg-stone-500 mt-3 mb-6"></div>
+            <span>25.10.25 토요일 13:20pm</span>
+            <span>웨딩시티·신도림</span>
           </div>
         </MotionDiv>
       </div>

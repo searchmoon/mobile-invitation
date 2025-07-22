@@ -9,7 +9,7 @@ export default function SplashScreen2({ fadeOut = false }: SplashScreenProps) {
     <div
       className={`
         fixed inset-0 flex items-center justify-center z-50
-        h-screen max-h-[900px]
+        h-screen max-h-[960px]
         transition-opacity duration-1000
         ${fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"}
         `}

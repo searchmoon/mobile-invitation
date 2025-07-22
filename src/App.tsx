@@ -8,15 +8,16 @@ function App() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // 1.5초 후 페이드아웃 시작
-    const timer1 = setTimeout(() => setFadeOut(true), 3000);
-    // 3초 후 SplashScreen 제거
+    // 2.5초 후 페이드아웃 시작
+    const timer1 = setTimeout(() => setFadeOut(true), 2500);
+    // 4초 후 SplashScreen 제거
     const timer2 = setTimeout(() => setShowSplash(false), 4000);
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
   }, []);
+
   return (
     <div className="flex flex-col items-center justify-center min-h-svh">
       <div

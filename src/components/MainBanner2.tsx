@@ -6,7 +6,7 @@ export default function MainBanner2() {
 
   return (
     <MotionDiv initial={{ y: 0 }}>
-      <div className="relative w-full h-screen max-h-[900px] flex flex-col transition-all duration-500">
+      <div className="text-white relative w-full h-screen max-h-[960px] flex flex-col transition-all duration-500">
         {/* 메인 이미지 */}
         <div className="h-full w-full overflow-hidden">
           <img
@@ -25,15 +25,15 @@ export default function MainBanner2() {
 
           <div className="absolute inset-0 flex flex-col items-center justify-between py-10">
             {/* 상단 텍스트 */}
-            <div className="inline-block bg-white/10 backdrop-blur-md rounded-full px-6 py-[6px] border border-white/20 z-10">
-              <p className="text-white text-xs font-light tracking-[0.25em]">SAVE THE DATE</p>
+            <div className="inline-block bg-white/10 backdrop-blur-md rounded-full px-6 py-[6px] border border-white/20">
+              <p className="text-xs font-light tracking-[0.25em]">SAVE THE DATE</p>
             </div>
 
             {/* 중앙 텍스트 */}
-            <div className="text-center text-white z-10 mb-[40vh]">
+            <div className="text-center mb-[40vh]">
               <h1
-                className="text-4xl mb-2 font-light tracking-wide"
-                style={{ fontFamily: "serif" }}
+                className="text-4xl mb-2 font-light tracking-wide font-spedialElite" //spedialElite 아니면 autery 아니면 Gaegu
+                // style={{ fontFamily: "serif" }}
               >
                 Sung & Moon
               </h1>
@@ -42,7 +42,7 @@ export default function MainBanner2() {
             </div>
 
             {/* 하단 텍스트 */}
-            <div className="text-center text-white">
+            <div className="text-center">
               <h2 className="texts-2xl mb-2 font-light tracking-wide">ChanHun & JeongEun</h2>
               <div className="flex items-center justify-center space-x-4 text-sm opacity-90">
                 <span>October 25</span>

@@ -9,9 +9,9 @@ export default function DailyCalendar() {
             className="object-cover"
           />
         </div>
-        <div className="flex flex-col items-center justify-center px-4 py-2 text-gray-800">
+        <div className="flex flex-col items-center justify-center px-4 py-2 text-700gray font-comingSoon">
           <p className="text-ms font-semibold">10 月</p>
-          <p className="text-6xl font-bold mb-2">25</p>
+          <p className="text-6xl font-bold my-1">25</p>
           <p className="text-xs font-light uppercase">Saturday</p>
         </div>
       </div>

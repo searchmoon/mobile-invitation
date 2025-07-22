@@ -18,7 +18,6 @@ export default function Preview() {
     return banners[randomIndex];
   }, []);
 
-  // const themeColor = "slate";
   const themeColor = "white";
 
   return (

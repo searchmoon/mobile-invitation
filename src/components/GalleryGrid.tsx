@@ -9,6 +9,7 @@ import {
 import MotionDiv from "./MotionDiv";
 import GalleryImage from "./galleryGrid/GalleryImage";
 import useModalScrollLock from "@/hooks/useModalScrollLock";
+import MainTitle from "./MainTitle";
 
 export default function GalleryGrid() {
   const [showAll, setShowAll] = useState(false);
@@ -72,12 +73,8 @@ export default function GalleryGrid() {
   };
 
   return (
-    <div>
-      <div className="flex justify-center pt-18 pb-8">
-        <MotionDiv>
-          <p className="text-3xl font-serif text-gray opacity-90 tracking-wider">GALLERY</p>
-        </MotionDiv>
-      </div>
+    <div className="pt-16">
+      <MainTitle title="GALLERY" />
       <MotionDiv>
         <div className="w-full grid gap-[2px] grid-cols-3">
           {visibleImages.map((image, index) => (
@@ -90,10 +87,10 @@ export default function GalleryGrid() {
           className="flex flex-col items-center justify-center py-6 cursor-pointer"
           onClick={() => setShowAll((prev) => !prev)}
         >
-          <span className="text-lightgray text-[14px]">{showAll ? "닫기" : "더보기"}</span>
+          <span className="text-600gray text-[14px] ">{showAll ? "닫기" : "더보기"}</span>
           <ChevronDown
             strokeWidth={1}
-            className={`w-[18px] h-[18px] transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}
+            className={`w-[18px] h-[18px] transition-transform duration-300 text-600gray ${showAll ? "rotate-180" : ""}`}
           />
         </div>
       </MotionDiv>
