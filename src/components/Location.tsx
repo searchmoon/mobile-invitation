@@ -73,7 +73,7 @@ function Location() {
             <div className="py-4">
               <Accordion type="multiple" className="w-full">
                 <strong>신도림역 (17-102)정류장 하차</strong>
-                <p>지하철 신도림역 3번출구 쪽</p>
+                <p>지하철 신도림역 3번출구 쪽에서 테크노마트 건물로 이동</p>
                 <AccordionItem value="bus-stop-1" className="border-none mb-4">
                   <AccordionTrigger className="hover:no-underline p-0 text-left [&[data-state=open]>svg]:rotate-180 justify-start py-[2px] gap-2">
                     버스노선 자세히 보기
