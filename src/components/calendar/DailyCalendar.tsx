@@ -10,9 +10,9 @@ export default function DailyCalendar() {
           />
         </div>
         <div className="flex flex-col items-center justify-center px-4 pt-4 pb-3 text-700gray">
-          <p className="text-3xl font-semibold font-comingSoon mb-1">10/25</p>
-          <p className="font-semibold">토요일 오후 1시 20분</p>
-          <p className="font-semibold">웨딩시티 신도림 8층 아모르홀</p>
+          <p className="text-3xl font-comingSoon mb-1">10/25</p>
+          <p>토요일 오후 1시 20분</p>
+          <p>웨딩시티 신도림 8층 아모르홀</p>
         </div>
       </div>
     </div>
