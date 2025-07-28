@@ -42,13 +42,7 @@ export default function WeddingCalendar() {
         <MotionDiv>
           <DailyCalendar />
         </MotionDiv>
-        <MotionDiv>
-          <div className="flex flex-col text-center gap-y-2 mb-6 opacity-90 mt-6">
-            <p className="text-lg font-medium mb-1">2025년 10월 25일 토요일 | 오후 1시 20분</p>
-            <p className="text-700gray">웨딩시티 신도림 8층 아모르홀</p>
-          </div>
-        </MotionDiv>
-        {/* <MonthCalendar /> */}
+
         <MotionDiv>
           <CountdownMinimal
             timeLeft={{
@@ -60,7 +54,7 @@ export default function WeddingCalendar() {
           />
         </MotionDiv>
         <MotionDiv>
-          <div className="pt-8">
+          <div className="pt-4">
             <p className="flex items-center justify-center text-ms leading-snug">
               찬훈
               <Heart className="mx-1 fill-[#ad968b]" color="#fff" />

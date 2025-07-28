@@ -4,7 +4,7 @@ const MIN_PADDING = 0; // 최소 padding-bottom (%)
 const MAX_PADDING = 56; // 동영상 비율 16:9 → 약 56.25%
 const START_OFFSET = 30; // 동영상 상단이 30px 들어온 뒤부터 애니메이션 시작
 
-const ScrollAnimatedVideo = () => {
+const ScrollVideo = () => {
   const boxRef = useRef<HTMLDivElement | null>(null);
   const [aspectRatioPadding, setAspectRatioPadding] = useState(MIN_PADDING);
 
@@ -73,11 +73,10 @@ const ScrollAnimatedVideo = () => {
         className="absolute inset-0 flex flex-col items-center justify-center bg-black/75 pointer-events-none font-comingSoon font-extrabold tracking-[4px]"
         style={strongShadow}
       >
-        <p className="text-white/90 text-6xl">10/25</p>
-        <span className="text-white text-2xl">13:20pm</span>
+        <p className="text-xl text-white ">We're Getting Married</p>
       </div>
     </div>
   );
 };
 
-export default ScrollAnimatedVideo;
+export default ScrollVideo;

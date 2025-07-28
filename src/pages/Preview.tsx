@@ -6,7 +6,7 @@ import MainBanner3 from "@/components/MainBanner3";
 import WeddingCalendar from "@/components/WeddingCalendar";
 import AccountInfomation from "@/components/AccountInfomation";
 import Location from "@/components/Location";
-import ScrollVideoComponent from "@/components/video/ScrollVideo";
+import ScrollVideo from "@/components/video/ScrollVideo";
 import Notice from "@/components/Notice";
 import QandA from "@/components/QandA";
 import Footer from "@/components/Footer";
@@ -26,7 +26,7 @@ export default function Preview() {
       <Notice />
       <GalleryGrid />
       <WeddingCalendar />
-      <ScrollVideoComponent />
+      <ScrollVideo />
       <Location />
       <AccountInfomation />
       <QandA />

@@ -41,18 +41,18 @@ export default function AccountInfomation() {
   const groomInfo = [
     {
       name: "신랑 성찬훈",
-      accountNumber: "국민 1111111111111111",
+      accountNumber: "신한 110-364-965483",
       phoneNumber: "010-6315-7035",
     },
     {
       name: "아버지 성홍모",
       accountNumber: "토스뱅크 02210-2222-1111",
-      phoneNumber: "010-2222-1111",
+      phoneNumber: "010-5234-1263",
     },
     {
       name: "어머니 지현진",
       accountNumber: "국민 010222-3333-1111",
-      phoneNumber: "010-3333-1111",
+      phoneNumber: "010-2496-3366",
     },
   ];
 
@@ -93,10 +93,12 @@ export default function AccountInfomation() {
     <div className="pb-16 px-4 xs400:px-6">
       <MotionDiv>
         <div className="text-center space-y-2 mb-12">
-          <MainTitle title="ACCOUNT" />
+          <MainTitle title="BLESSING" />
+          {/* 또는 BLESSING 또는 SUPPORT 또는 GIFT */}
           <p>직접 참석이 어려우신 분들을 위해</p>
-          <p>계좌번호를 함께 안내드립니다.</p>
+          <p>마음 전하실 곳을 함께 안내드립니다.</p>
           <p>저희의 새로운 시작을 축하해 주셔서</p>
+          {/* 축복? 축하? 응원? 지지? */}
           <p>진심으로 감사드립니다.</p>
         </div>
       </MotionDiv>

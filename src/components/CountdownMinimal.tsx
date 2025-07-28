@@ -1,4 +1,4 @@
-interface CountdownMinimalProps {
+export interface CountdownMinimalProps {
   timeLeft: {
     days: number;
     hours: number;
@@ -8,15 +8,22 @@ interface CountdownMinimalProps {
 }
 
 export default function CountdownMinimal({ timeLeft }: CountdownMinimalProps) {
+  const safeTimeLeft = {
+    days: timeLeft?.days ?? 0,
+    hours: timeLeft?.hours ?? 0,
+    minutes: timeLeft?.minutes ?? 0,
+    seconds: timeLeft?.seconds ?? 0,
+  };
+
   const timeLeftArr = [
-    { value: timeLeft.days, label: "DAYS" },
-    { value: timeLeft.hours, label: "HOURS" },
-    { value: timeLeft.minutes, label: "MINUTES" },
-    { value: timeLeft.seconds, label: "SECONDS" },
+    { value: safeTimeLeft.days, label: "DAYS" },
+    { value: safeTimeLeft.hours, label: "HOURS" },
+    { value: safeTimeLeft.minutes, label: "MINUTES" },
+    { value: safeTimeLeft.seconds, label: "SECONDS" },
   ];
 
   return (
-    <div className="flex justify-center items-center gap-3 py-8 font-comingSoon">
+    <div className="flex justify-center items-center gap-3 py-8 font-comingSoon z-40">
       {timeLeftArr.map((item) => (
         <div key={item.label} className="w-[67px] flex flex-col items-center group">
           <div

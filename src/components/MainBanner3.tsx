@@ -10,12 +10,8 @@ export default function MainBanner3() {
         {/* 상단 이름 */}
         <header className="px-8 pt-8 pb-2">
           <div className="flex justify-between items-center">
-            <h1 className="text-[22px] font-light tracking-wide" style={{ fontFamily: "serif" }}>
-              ChanHun
-            </h1>
-            <h1 className="text-[22px] font-light tracking-wide" style={{ fontFamily: "serif" }}>
-              JeongEun
-            </h1>
+            <h1 className="text-[22px] font-light font-serif">ChanHun</h1>
+            <h1 className="text-[22px] font-light font-serif">JeongEun</h1>
           </div>
         </header>
 

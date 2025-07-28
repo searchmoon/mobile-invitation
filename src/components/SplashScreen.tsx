@@ -90,13 +90,13 @@ export default function SplashScreen({ fadeOut = false }: SplashScreenProps) {
           </div>
         </div>
         <MotionDiv initial={{ y: 0 }} transition={{ duration: 3 }}>
-          <div className="flex flex-col items-center font-gamja tracking-widest text-lg xs340:text-xl">
+          <div className="flex flex-col items-center tracking-widest xs340:text-[18px]">
             <div className="w-[1px] h-14 bg-stone-600 mt-30 mb-6"></div>
 
             <div className="flex items-center">
-              <span className="text-lg xs340:text-[22px]">찬훈</span>
+              <span>찬훈</span>
               <Heart className="mr-2 ml-1 fill-[#f8b9b9] text-white/70" />
-              <span className="text-lg xs340:text-[22px]">정은</span>
+              <span>정은</span>
             </div>
             <span>결혼합니다</span>
             <div className="w-6 h-[1px] bg-stone-500 mt-3 mb-6"></div>
