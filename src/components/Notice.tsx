@@ -4,7 +4,7 @@ export default function Notice() {
   return (
     <MotionDiv>
       <div className="flex flex-col items-center space-y-2 pt-16 pb-6 px-4 xs400:px-6">
-        <p>저희의 결혼식에 초대합니다.</p>
+        <p>저희 두사람의 결혼식에 초대합니다.</p>
         <p>서로의 삶에 따뜻한 동반자가 되어</p>
         <p>사랑과 신뢰로 한 가정을 이루려 합니다.</p>
         <p>축복의 자리에 귀한 걸음 하시어</p>
