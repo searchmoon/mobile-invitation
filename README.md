@@ -1,58 +1,27 @@
-# React + TypeScript + Vite
+# 💌 모바일 청첩장 (Mobile Invitation)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React, TypeScript, Vite를 기반으로 제작된 인터랙티브 모바일 청첩장 프로젝트. shadcn/ui와 Tailwind CSS를 활용하여 스타일을 구현했으며, 다양한 인터렉티브 라이브러리를 통해 동적인 사용자 경험을 제공.
 
-Currently, two official plugins are available:
+## ✨ 주요 기능 (Features)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **아름다운 UI/UX**: `shadcn/ui`와 `Tailwind CSS`를 사용한 깔끔하고 반응형인 디자인
+- **인터랙티브 애니메이션**: `Motion` 라이브러리와 `Matter.js` 물리 엔진을 활용한 동적인 효과
+- **사진 갤러리**: `embla-carousel-react`를 이용한 스와이프 가능한 갤러리
+- **오시는 길 안내**: `react-kakao-maps-sdk`로 구현된 카카오 지도 연동
+- **손쉬운 날짜 계산**: `date-fns`를 사용한 D-day 및 날짜 표시
+- **알림 기능**: `sonner`를 통한 깔끔한 토스트 메시지
 
-## Expanding the ESLint configuration
+## 🛠️ 기술 스택 (Tech Stack)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Main Stack: React, TypeScript, Vite
+- Styling: Tailwind CSS, shadcn/ui
+- Animation & Interaction: Motion, embla-carousel-react
+- Utilities: React Kakao Maps SDK, date-fns, sonner
+- 
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+## 🚀 시작하기 (Getting Started)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- 실행: pnpm run dev
+- 빌드: pnpm run build
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
-
-- window.kakao는 kakao map SDK
-
-- window.Kakao는 카카오톡 공유 등 JS SDK
+### 링크 주소: [모바일 청첩장 바로가기](https://mobile-invitation-zeta.vercel.app/)
